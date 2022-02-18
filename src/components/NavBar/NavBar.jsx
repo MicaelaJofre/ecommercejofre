@@ -21,6 +21,7 @@ const NavBar = () => {
                     <a href=""><FontAwesomeIcon icon={faMagnifyingGlass} /></a>
                     <a href=""><FontAwesomeIcon icon={faEnvelope} /></a>
                     <a href=""><FontAwesomeIcon icon={faCartPlus} /></a>
+                    <button>Iniciar seción</button>
                 </div>
             </nav>
         </div>

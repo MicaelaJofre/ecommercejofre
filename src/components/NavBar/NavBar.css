@@ -35,10 +35,26 @@
     margin: .5em;
 }
 
+.icons{
+    display: flex;
+    align-items: center;
+}
 .icons a {
     margin: 1em;
     font-size: 1.2em;
 }
+.icons button {
+    margin-left: .5em;
+    padding: .5em;
+    font-weight: 600;
+    border: none;
+    border-radius: .25em;
+}
+.icons button:hover{
+    background-color: #ffeb5463;
+    transform: scale(1.1);
+}
+
 
 /* font-family: 'Josefin Slab',
 serif; */
