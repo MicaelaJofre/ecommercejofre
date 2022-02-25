@@ -1,0 +1,149 @@
+.itemListContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+/********* aside ***************/
+.asideDeco{
+    background-color: #faf1f18c;
+    padding: 6em 3em;
+    width: 30%;
+    height: 100%;
+}
+.asideDeco h1{
+    font-size: 2.7em;
+    font-family: 'Josefin Slab',
+    serif;
+}
+.asideDeco p {
+    font-size: 1.2em;
+    font-weight: 200;
+}
+
+.formAsideDeco{
+    margin-top: 2em;
+}
+.formAsideDeco legend{
+    font-weight: 600;
+    font-size: 1.2em;
+    padding: 1em 0;
+}
+.formAsideDeco div input {
+    margin: .5em .5em 0 0 ;
+}
+
+/************section product*************/
+.cardsItemContainer {
+    background-color: #faf1f18c;
+    width: 70%;
+    height: 100%;
+    
+}
+.cardsContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 270px));
+    gap: 1em;
+    justify-content: center;
+    padding: 2em 1em;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    padding: 1em;
+    cursor: pointer;
+}
+.card:hover{
+    transform: scale(1.1);
+}
+.card span{
+    position: absolute;
+    padding: .5em;
+    font-size: .9em;
+    background-color: #ffeb5428;
+    width: auto;
+    left: 10;
+}
+.cardImage img{
+    width: 15em;
+    height: 10em;
+    object-fit: cover;
+    display: flex;
+    justify-content: center;
+}
+.cardText h2{
+    padding: .5em;
+    margin-top: 1em;
+    font-size: .6em;
+    line-height: 1.3em;
+}
+.cardText p{
+    font-size: 1.1em;
+    padding: .6em 0;
+}
+.cardsFees{
+    border: 1px solid #515151;
+    width: 100%;
+}
+.cardsFees h3{
+    padding: .5em;
+    font-size: .9em;
+}
+.countCards{
+    display: flex;
+    justify-content: center;
+    width: 80%;
+    margin: .5em 0;
+    padding: .5em 0;
+    background-color: #5151513d;
+}
+.countCards p{
+    width: 6em;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button{
+    padding: .5em 1em;
+    margin: .5em;
+    background: transparent;
+    border: #515151 solid 1px;
+    outline: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #ffeb543a;
+}
+button:focus {
+    transform: scale(1.1);
+}
+
+
+/* media querie */
+@media screen and (max-width: 880px) {
+    .asideDeco{
+        padding: 3em;
+        width: 100%;
+    }
+    .formAsideDeco{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .formAsideDeco div{
+        margin-right: 2em;
+    }
+    .cardsItemContainer {
+        width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 690px){
+    .cardsContainer {
+        grid-template-columns: 90%;
+        justify-items: center;
+    }
+}

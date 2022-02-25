@@ -1,12 +1,16 @@
+.containerNav{
+    opacity: .99;
+}
 .nav {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     background-color: rgba(81, 81, 81, 0.281);
-    box-shadow: 0px 0px 67px -17px rgba(81, 81, 81, 1);
-    -moz-box-shadow: 0px 0px 67px -17px rgba(81, 81, 81, 1);
-    box-shadow: 0px 0px 67px -17px rgba(81, 81, 81, 1);
+    box-shadow: 0px 0px 67px -22px rgba(81, 81, 81, 1);
+    -moz-box-shadow: 0px 0px 67px -22px rgba(81, 81, 81, 1);
+    box-shadow: 0px 0px 67px -22px rgba(81, 81, 81, 1);
+    
 }
 /* logo*/
 .nav a img {
@@ -45,6 +49,17 @@
     margin: 1em;
     font-size: 1.2em;
 }
+.firstIcons form input {
+    outline: none;
+    border: none;
+    background-color: transparent;
+}
+
+.firstIcons form input:focus {
+    border-bottom: #fff solid 1px;
+}
+
+
 .cartPlus {
     position: relative;
 }
@@ -77,7 +92,6 @@
     color: #fff;
     border:solid 1px  #FFEB54;
 }
-
 
 
 /* boton de hamburguesa */
@@ -143,16 +157,37 @@
     top: 13px;
 }
 
+/* backgraund fondo del nav responsive */
+.bgDiv {
+    background: #515151;
+    position: absolute;
+    top: -1000px;
+    left: -700px;
+    width: 100%;
+    height: 100%;
+    z-index: -10;
+    transition: all 1s ease;
+}
+
+.bgDiv.active {
+    border-radius: 0 0 40% 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 150vh;
+}
+
+
 
 /*media queries*/
 
-@media screen and (min-width: 1030px) {
+@media screen and (min-width: 1100px) {
     .nav-icon-5{
         display: none;
     }
 }
 
-@media screen and (max-width: 1030px) {
+@media screen and (max-width: 1100px) {
     .nav{
         position: relative;
         background: #fcee85;
@@ -190,30 +225,17 @@
         top: 35em;
         left: 0;
         text-align: center;
+        
     }
-    .iconsButton button{
+    .icons button{
         background: #515151;
         color: #fff;
         margin: 0;
-        border: 1px solid #FFEB54;
+        outline: none;
+        border: 1px solid 22;
+    }
+    .icons button:focus {
+        transform: scale(1.2);
     }
 }
 
-.bgDiv{
-    background: #515151;
-    position: absolute;
-    top: -700px;
-    left: -1000px;
-    width: 100%;
-    height: 100%;
-    z-index: -10;
-    transition: all 3s ease;
-}
-.bgDiv.active{
-    border-radius: 0 0 40% 0;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 150vh;
-
-}

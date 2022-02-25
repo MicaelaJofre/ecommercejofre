@@ -7,8 +7,13 @@ function App() {
     < div className = "App" >
       <header>
         <NavBar />
-        < ItemListContainer/>
       </header>
+      <main>
+        < ItemListContainer/>
+      </main>
+      <footer>
+        
+      </footer>
     </div>
   );
 }
