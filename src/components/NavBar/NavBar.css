@@ -7,9 +7,10 @@
     align-items: center;
     justify-content: space-around;
     background-color: rgba(81, 81, 81, 0.281);
-    box-shadow: 0px 0px 67px -22px rgba(81, 81, 81, 1);
-    -moz-box-shadow: 0px 0px 67px -22px rgba(81, 81, 81, 1);
-    box-shadow: 0px 0px 67px -22px rgba(81, 81, 81, 1);
+    -webkit-box-shadow: 0px -5px 19px 6px #00000070;
+    -moz-box-shadow: 0px -5px 19px 6px #00000070;
+    box-shadow: 0px -5px 19px 6px #00000070;
+
     
 }
 /* logo*/
@@ -83,7 +84,7 @@
     margin-left: 1em;
     padding: .5em;
     font-weight: 600;
-    border: none;
+    border: 1px solid transparent;
     border-radius: .25em;
     background-color: rgba(81, 81, 81, 0.281);
     outline: none;

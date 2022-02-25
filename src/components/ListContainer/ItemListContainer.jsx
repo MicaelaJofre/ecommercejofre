@@ -21,42 +21,35 @@ const ItemListContainer = () => {
                     <div>
                         <legend>Categorías</legend>
                         <div>
-                            <input type='checkbox' />
-                            <label htmlFor="">Jarrones y floreros</label>
+                            
+                            <label><input type='checkbox' />Jarrones y floreros</label>
                         </div>
                         <div>
-                            <input type='checkbox' />
-                            <label htmlFor="">Adornos</label>
+                            <label><input type='checkbox' />Adornos</label>
                         </div>
                         <div>
-                            <input type='checkbox' />
-                            <label htmlFor="">Organizadores</label>
+                            <label><input type='checkbox' />Organizadores</label>
                         </div>
                         <div>
-                            <input type='checkbox' />
-                            <label htmlFor="">Espejos</label>
+                            <label><input type='checkbox' />Espejos</label>
                         </div>
                     </div>
                     <div>
                         <div>
                             <legend>Envío</legend>
-                            <input type='checkbox' />
-                            <label htmlFor="">Envío gratis</label>
+                            <label><input type='checkbox' />Envío gratis</label>
                         </div>
                     </div>
                     <div>
                         <legend>Precio</legend>
                         <div>
-                            <input type='checkbox' />
-                            <label htmlFor="">Hasta $1000</label>
+                            <label><input type='checkbox' />Hasta $1000</label>
                         </div>
                         <div>
-                            <input type='checkbox' />
-                            <label htmlFor="">$1000 a $2000</label>
+                            <label><input type='checkbox' />$1000 a $2000</label>
                         </div>
                         <div>
-                            <input type='checkbox' />
-                            <label htmlFor="">Más de $2000</label>
+                            <label><input type='checkbox' />Más de $2000</label>
                         </div>
                     </div>
                 </form>

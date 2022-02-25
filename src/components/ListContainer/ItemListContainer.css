@@ -29,6 +29,10 @@
 }
 .formAsideDeco div input {
     margin: .5em .5em 0 0 ;
+    cursor: pointer;
+}
+.formAsideDeco div label {
+    cursor: pointer;
 }
 
 /************section product*************/
@@ -54,9 +58,6 @@
     position: relative;
     padding: 1em;
     cursor: pointer;
-}
-.card:hover{
-    transform: scale(1.1);
 }
 .card span{
     position: absolute;
@@ -115,9 +116,6 @@ button{
     cursor: pointer;
 }
 button:hover{
-    background-color: #ffeb543a;
-}
-button:focus {
     transform: scale(1.1);
 }
 
