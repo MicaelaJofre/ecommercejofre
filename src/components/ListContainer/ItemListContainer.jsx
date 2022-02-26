@@ -55,7 +55,7 @@ const ItemListContainer = () => {
                 </form>
             </aside>
             <section className='cardsItemContainer'>
-                <ItemCount initial={1} stock={5} onAdd={onAdd} />
+                { <ItemCount initial={1} stock={5} onAdd={onAdd} />}
             </section>
         </div>
     )

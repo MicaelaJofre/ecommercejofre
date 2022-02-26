@@ -3,6 +3,8 @@ import "./ItemListContainer.css";
 import jarHexagon from "../../assets/image/frasco01.jpg";
 import { useState } from 'react';
 
+
+
 const ItemCount = ( props ) => {
     
     const [count, setCount] = useState(props.initial);
@@ -20,7 +22,7 @@ const ItemCount = ( props ) => {
     
     return (
         <div className='cardsContainer'>
-            <div className="card">
+            {<div className="card">
                 <div className="cardImage">
                     <span>30% descuento</span>
                     <img src={jarHexagon} alt="frascos" />
@@ -38,7 +40,7 @@ const ItemCount = ( props ) => {
                     <p onClick={addProduct}>+</p>
                 </div>
                 <button onClick={() => { if (props.stock !== 0) props.onAdd(count)}}>Agregar al carrito</button>
-            </div>
+            </div>}
         </div>
         
     )
