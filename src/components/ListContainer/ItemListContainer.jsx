@@ -1,15 +1,33 @@
-import React from 'react';
-import { ItemCount } from './ItemCount';
 import "./ItemListContainer.css";
+import { getFetchs } from '../helpers/getFetchs';
+import { ItemList } from './ItemList';
+import {  useEffect, useState } from "react";
 
 
 const ItemListContainer = () => {
 
+    const [prods, setProds] = useState([]);
+    const [loading, setLoading] = useState(true)
+
+    //promesa
+    useEffect(() => {
+        getFetchs
+            .then((data) => {
+                return data;
+            })
+            .then((data) => setProds(data))
+            .catch((err) => console.log(err))
+            .finally(() => setLoading(false))
+    }, [])
+    
+
+    //contador
     const onAdd = (count) => {
         if (count !== 0) {
             console.log(count);
         }
     }
+
 
 
     return(
@@ -55,7 +73,11 @@ const ItemListContainer = () => {
                 </form>
             </aside>
             <section className='cardsItemContainer'>
-                { <ItemCount initial={1} stock={5} onAdd={onAdd} />}
+                {
+                    loading ? <div className="loader" id="loader"></div>
+                            : 
+                        < ItemList onAdd={onAdd} prods={prods} />   
+                }
             </section>
         </div>
     )
