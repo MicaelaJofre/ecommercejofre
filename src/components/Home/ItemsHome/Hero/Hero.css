@@ -1,0 +1,21 @@
+.carousel img {
+    width: 100%;
+    height: 55vh;
+    background-color: aqua;
+    object-fit: cover;
+}
+.carousel-status{
+    display: none;
+}
+
+.control-arrow:hover {
+    background-color: transparent !important;
+}
+.carousel ul {
+    display: none;
+}
+
+.legend {
+    background-color: #faf1f18c !important;
+    font-size: 2em !important;
+}

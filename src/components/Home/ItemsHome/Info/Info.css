@@ -1,0 +1,23 @@
+.containerInfo{
+    height: 100%;
+    padding: 5em;
+}
+.cardInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../../../../../public/assets/image/decoHeader2.png);
+    background-position: center;
+    background-size: cover;
+    border-radius: 0.55em;
+    height: 13em ;
+}
+.cardInfo h2{
+    color: #fff;
+    padding-bottom: 1em;
+}
+.cardInfo a{
+    color: #fff;
+    cursor: pointer;
+}

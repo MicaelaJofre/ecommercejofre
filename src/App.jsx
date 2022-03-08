@@ -1,7 +1,8 @@
 import { NavBar } from "./components/NavBar/NavBar";
-import {ItemListContainer} from "./components/ListContainer/ItemListContainer";
 import './App.css';
-import { Front } from "./components/front/Front";
+import { Home } from "./components/Home/Home";
+import { ItemListContainer } from "./components/ListContainer/ItemListContainer/ItemListContainer";
+import { ItemDetailContainer } from "./components/ListContainer/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
   return (
@@ -10,8 +11,9 @@ function App() {
         <NavBar />
       </header>
       <main>
+        {/* <Home/> */}
         < ItemListContainer />
-        {/* <Front /> */}
+        <ItemDetailContainer />
       </main>
       <footer>
         

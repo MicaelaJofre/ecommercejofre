@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './NavBar.css';
-import logo from '../../assets/image/logo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { ButtonHamburger } from './ButtonHamburger';
@@ -18,7 +17,7 @@ const NavBar = () => {
     return (
         <div className='containerNav'>
             <nav className='nav'>
-                <a href=""><img src={logo} alt="logo empresarial" /></a>
+                <a href=""><img src={process.env.PUBLIC_URL + '/assets/image/logo.png'} alt="logo empresarial" /></a>
                 <ul className={`${activeClick ? 'active' : ''} `}>
                     <li><a href=''>Deco</a></li>
                     <li><a href=''>Bazar</a></li>
