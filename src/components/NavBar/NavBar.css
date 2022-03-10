@@ -50,6 +50,10 @@
     margin: 1em;
     font-size: 1.2em;
 }
+.icons i {
+    margin: 1em;
+    font-size: 1.2em;
+}
 .firstIcons form input {
     outline: none;
     border: none;
@@ -61,19 +65,18 @@
 }
 
 
-.cartPlus {
+.cartPlus  {
     position: relative;
 }
 .cartPlus span {
     position: absolute;
     background: #ff5a5f;
     border-radius: 50%;
-    width: 1.1em;
+    width: .9em;
     height: 1.1em;
     right: 1em;
-    top: -.7em;
-    display: flex;
-    justify-content: center;
+    top: .7em;
+    text-align: center;
     padding: 1px;
     color: #fff;
     font-weight: 200;
@@ -107,7 +110,7 @@
 }
 
 .nav-icon-5 span {
-    background-color: #515151;
+    background-color: #FFEB54;
     position: absolute;
     border-radius: 2px;
     transition: .3s cubic-bezier(.8, .5, .2, 1.4);
@@ -175,7 +178,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 150vh;
+    height: 100vh;
 }
 
 
@@ -194,7 +197,7 @@
 @media screen and (max-width: 1100px) {
     .nav{
         position: relative;
-        background: #fcee85;
+        background-color: #999;
     }
     .nav ul{
         display: none;
@@ -207,7 +210,21 @@
         width: 100%;
         height: 120vh;
         padding-top: 3em;
-    }  
+        animation-duration: 1s;
+        animation-name: slidein;
+    }
+
+    @keyframes slidein {
+        from {
+            margin-right: 100%;
+            width: 300%
+        }
+
+        to {
+            margin-right: 0%;
+            width: 100%;
+        }
+    }
     .nav ul li a{
         display: block;
         color: #fff;
@@ -229,11 +246,24 @@
         top: 35em;
         left: 0;
         text-align: center;
-        
+        animation-duration: 1s;
+        animation-name: slidein;
+        }
+
+    @keyframes slidein {
+        from {
+            margin-right: 100%;
+            width: 300%
+        }
+
+        to {
+            margin-right: 0%;
+            width: 100%;
+        }
     }
     .icons button{
-        background: #515151;
-        color: #fff;
+        background: #888;
+        color: #FFEB54;
         margin: 0;
         outline: none;
         border: 1px solid 22;

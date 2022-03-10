@@ -1,14 +1,17 @@
+import { Link } from 'react-router-dom';
 import { Count } from '../../Count';
 import "../ItemListContainer.css";
 
-const Items = ({ prod, onAdd}) => {
-    
+const Items = ({ prod, onAdd }) => {
+
     return (
         <div key={prod.id}>
             <div className="card">
                 <div className="cardImage">
                     <span> {prod.discount}% descuento</span>
-                    <img src={process.env.PUBLIC_URL + prod.img} alt={prod.name} />
+                    <Link to={`detailCards/${prod.id}`}>
+                        <img src={process.env.PUBLIC_URL + prod.img} alt={prod.name} />
+                    </Link>
                 </div>
                 <div className="cardText">
                     <h2>{prod.name}</h2>
@@ -17,10 +20,10 @@ const Items = ({ prod, onAdd}) => {
                 <div className="cardsFees">
                     <h3>3 cuotas sin interés de ${prod.quota}</h3>
                 </div>
-                <Count onAdd={onAdd} initial={1} stock={5}/> 
+                <Count onAdd={onAdd} initial={1} stock={5} />
             </div>
         </div>
     )
 }
 
-export { Items }
+export { Items } 

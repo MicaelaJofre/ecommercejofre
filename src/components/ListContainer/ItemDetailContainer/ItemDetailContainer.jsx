@@ -1,24 +1,26 @@
 import './ItemDetailContainer.css';
 import { ItemDetail } from './ItemDetail';
 import { useEffect, useState } from "react";
-import { getItem } from "../../../helpers/getFetchs";
+import { getFetchs } from "../../../helpers/getFetchs";
+import { useParams } from 'react-router-dom';
 
 const ItemDetailContainer = () => {
 
 
     const [item, setItem] = useState();
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
+    const { detailId } = useParams();
 
     //promesa
     useEffect(() => {
-        getItem
+        getFetchs
             .then((data) => {
                 return data;
             })
-            .then((data) => setItem(data))
+            .then((data) => setItem(data.find(prod => prod.id === detailId)))
             .catch((err) => console.log(err))
             .finally(() => setLoading(false))
-    }, [])
+    }, [detailId])
 
     return (
         <div className='itemDetailContainer'>

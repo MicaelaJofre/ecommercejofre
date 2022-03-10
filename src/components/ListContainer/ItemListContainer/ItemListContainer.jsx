@@ -3,24 +3,28 @@ import { ItemList } from './cards/ItemList';
 import {  useEffect, useState } from "react";
 import { Aside } from "./aside/Aside";
 import { getFetchs } from "../../../helpers/getFetchs";
+import { useParams } from "react-router-dom";
 
 
 const ItemListContainer = () => {
 
     const [prods, setProds] = useState([]);
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(true);
+    const { categoryId } = useParams();
 
     //promesa
     useEffect(() => {
-        getFetchs
-            .then((data) => {
-                return data;
-            })
-            .then((data) => setProds(data))
-            .catch((err) => console.log(err))
-            .finally(() => setLoading(false))
-    }, [])
-    console.log(prods);
+        if (categoryId) {
+            
+            getFetchs
+                .then((data) => {
+                    return data;
+                })
+                .then((data) => setProds(data.filter(prod => prod.category === categoryId)))
+                .catch((err) => console.log(err))
+                .finally(() => setLoading(false))
+        }
+    }, [categoryId])
 
     //contador
     const onAdd = (count) => {

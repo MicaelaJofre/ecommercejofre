@@ -4,7 +4,12 @@ import { Count } from "../../ListContainer/Count";
 import { ContainerLeyCompra } from '../ContainerLeyCompra';
 
 const ItemDetail = ({ item }) => {
-    
+    //contador
+    const onAdd = (count) => {
+        if (count !== 0) {
+            console.log(count);
+        }
+    }
     return (
         <>
         <section className="containerDetail">
@@ -27,7 +32,7 @@ const ItemDetail = ({ item }) => {
                 </div>
                 <hr />
                 <p className='textCant'>Cantidad</p>
-                <Count initial={1} stock={5} />
+                    <Count initial={1} stock={5} onAdd={onAdd}/>
             </div>
         </section>
         <article>

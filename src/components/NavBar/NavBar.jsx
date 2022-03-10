@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { NavLink } from "react-router-dom";
 import './NavBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
@@ -17,13 +18,13 @@ const NavBar = () => {
     return (
         <div className='containerNav'>
             <nav className='nav'>
-                <a href=""><img src={process.env.PUBLIC_URL + '/assets/image/logo.png'} alt="logo empresarial" /></a>
+                <NavLink to='Home'><img src={process.env.PUBLIC_URL + '/assets/image/logo.png'} alt="logo empresarial" /></NavLink>
                 <ul className={`${activeClick ? 'active' : ''} `}>
-                    <li><a href=''>Deco</a></li>
-                    <li><a href=''>Bazar</a></li>
-                    <li><a href=''>Cuadros</a></li>
-                    <li><a href=''>Textil</a></li>
-                    <li><a href=''>Aromas</a></li>
+                    <li><NavLink to='category/Deco'>Deco</NavLink></li>
+                    <li><NavLink to='category/Bazar'>Bazar</NavLink></li>
+                    <li><NavLink to='category/Cuadros'>Cuadros</NavLink></li>
+                    <li><NavLink to='category/Textil'>Textil</NavLink></li>
+                    <li><NavLink to='category/Aromas'>Aromas</NavLink></li>
                 </ul>
                 
                 <div className='icons'>
@@ -37,7 +38,7 @@ const NavBar = () => {
                         <a href=""><FontAwesomeIcon icon={faEnvelope} /></a>
                     </div>
                     <div className='cartPlus'>
-                        <CartWidget/>
+                        <NavLink to='cart'><CartWidget /></NavLink>
                     </div>
                     <div className={`iconsButton ${activeClick ? 'active' : ''} `}>
                         <button>Iniciar seción</button>
