@@ -6,12 +6,11 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
-    background-color: rgba(81, 81, 81, 0.281);
+    background-color: #999;
     -webkit-box-shadow: 0px -5px 19px 6px #00000070;
     -moz-box-shadow: 0px -5px 19px 6px #00000070;
     box-shadow: 0px -5px 19px 6px #00000070;
-
-    
+    z-index: 100;
 }
 /* logo*/
 .nav a img {
@@ -64,7 +63,7 @@
     border-bottom: #fff solid 1px;
 }
 
-
+/* carrito */
 .cartPlus  {
     position: relative;
 }
@@ -72,15 +71,15 @@
     position: absolute;
     background: #ff5a5f;
     border-radius: 50%;
-    width: .9em;
-    height: 1.1em;
-    right: 1em;
-    top: .7em;
+    width: 1em;
+    height: 1.2em;
+    right: 1.5em;
+    top: 1.2em;
     text-align: center;
-    padding: 1px;
+    padding: 2px;
     color: #fff;
     font-weight: 200;
-    font-size: .8em;
+    font-size: .6em;
 }
 
 .icons button {
@@ -169,7 +168,7 @@
     left: -1700px;
     width: 100%;
     height: 100%;
-    z-index: -10;
+    z-index: 80;
     transition: all 1s ease;
 }
 
@@ -197,7 +196,6 @@
 @media screen and (max-width: 1100px) {
     .nav{
         position: relative;
-        background-color: #999;
     }
     .nav ul{
         display: none;

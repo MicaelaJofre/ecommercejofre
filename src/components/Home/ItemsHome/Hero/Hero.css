@@ -1,22 +1,88 @@
 
-.carousel img {
+.carousel {
+    position: relative;
+}
+.containerSlide{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.slide {
+    min-width: 100%;
+    overflow: hidden;
+    transition: 1.3s all ease;
+    z-index: 10;
+    max-height: 25em;
+    position: relative;
+}
+.slide img {
+    object-fit: fill;
+    object-position: bottom;
+    vertical-align: top;
     width: 100%;
-    height: 55vh;
-    object-fit: cover;
+    height: 25em;
 }
-.carousel-status{
-    display: none;
+.textSlide{
+    background-color: rgba(255, 255, 255, 0.534);
+    width: 100%;
+    color: #faf1f18c;
+    padding: .5em 3em;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+/*botones*/
+.controlsButton{
+    position: absolute;
+    top: 0;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+.controlsButton button{
+    pointer-events: all;
+    background: none;
+    outline: none;
+    border: none;
+    font-size: 1.5em;
+    width: 3em;
+    height: 100%;
+    position: absolute;
+    transition: .3s all ease;
+    cursor: pointer;
+    text-align: center;
+}
+.buttonLeft{
+    left: 0;
+}
+.buttonLeft:hover{
+    transform: scale(1.1);
+}
+.buttonRigth{
+    right: 0;
+}
+.buttonRigth:hover {
+    transform: scale(1.1);
 }
 
-.control-arrow:hover {
-    background-color: transparent !important;
-}
-.carousel ul {
-    display: none;
-}
-
-.legend {
-    color: #555 !important;
-    background-color: #faf1f1cb !important;
-    font-size: 2em !important;
+@media screen and (max-width: 540px){
+    .textSlide{
+        position: relative;
+        background-color: #555;
+        padding: .5em;
+    }
+    .textSlide p {
+        color: #fff;
+        font-size: .5em;
+    }
+    .controlsButton button{
+        width: 2px;
+        font-size: .9em;
+        height: 70%;
+    }
+    .slide img{
+        height: 15em;
+    }
 }

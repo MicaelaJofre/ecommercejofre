@@ -20,11 +20,11 @@ const NavBar = () => {
             <nav className='nav'>
                 <NavLink to='Home'><img src={process.env.PUBLIC_URL + '/assets/image/logo.png'} alt="logo empresarial" /></NavLink>
                 <ul className={`${activeClick ? 'active' : ''} `}>
-                    <li><NavLink to='category/Deco'>Deco</NavLink></li>
-                    <li><NavLink to='category/Bazar'>Bazar</NavLink></li>
-                    <li><NavLink to='category/Cuadros'>Cuadros</NavLink></li>
-                    <li><NavLink to='category/Textil'>Textil</NavLink></li>
-                    <li><NavLink to='category/Aromas'>Aromas</NavLink></li>
+                    <li><NavLink to='category/deco'>Deco</NavLink></li>
+                    <li><NavLink to='category/bazar'>Bazar</NavLink></li>
+                    <li><NavLink to='category/cuadros'>Cuadros</NavLink></li>
+                    <li><NavLink to='category/textil'>Textil</NavLink></li>
+                    <li><NavLink to='category/aromas'>Aromas</NavLink></li>
                 </ul>
                 
                 <div className='icons'>

@@ -9,7 +9,7 @@ const Items = ({ prod, onAdd }) => {
             <div className="card">
                 <div className="cardImage">
                     <span> {prod.discount}% descuento</span>
-                    <Link to={`detailCards/${prod.id}`}>
+                    <Link to={`/detail/${prod.id}`}>
                         <img src={process.env.PUBLIC_URL + prod.img} alt={prod.name} />
                     </Link>
                 </div>

@@ -1,25 +1,122 @@
-import React, { Component } from 'react';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from 'react-responsive-carousel';
+import React, { useRef , useEffect} from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import './Hero.css';
 
-export class Hero extends Component {
-    render() {
-        return (
-            <Carousel className='carousel'>
-                <div>
-                    <img src={process.env.PUBLIC_URL + "/assets/image/decoHeader1.jpg"}  />
-                    <p className="legend">Deco</p>
-                </div>
-                <div>
-                    <img src={process.env.PUBLIC_URL + "/assets/image/decoHeader2.png"} />
-                    <p className="legend">Hogar</p>
-                </div>
-                <div>
-                    <img src={process.env.PUBLIC_URL + '/assets/image/decoHeader3.png'} />
-                    <p className="legend">Asesoramiento personalizado</p>
-                </div>
-            </Carousel>
-        );
+const Hero = () => {
+
+    const slideShow = useRef(null);
+    /* const intervalSlide = useRef(null); */
+
+    //boton de siguiente
+    const after = () => {
+
+        if (slideShow.current.children.length > 0) {
+            //obtenemos el primer elemento
+            const firstItem = slideShow.current.children[0];
+
+            //sacamos el tamaño del slide
+            const widthSlide = slideShow.current.children[0].offsetWidth;
+
+            slideShow.current.style.transition = '1000ms ease-out all';
+            slideShow.current.style.transform = `translateX(-${widthSlide}px)`;
+
+            const transition = () => {
+                
+                slideShow.current.style.transition = 'none';
+                slideShow.current.style.transform = 'translateX(0)';
+
+                //tomamos el primer elemento y lo mandamos al final
+                slideShow.current.appendChild(firstItem);
+                //borramos el eventListener
+                slideShow.current.removeEventListener('transitionend', transition);
+            }
+
+            // eventListener para cuando termine la animación
+            slideShow.current.addEventListener('transitionend', transition);
+        }
     }
-};
+
+    //boton anterior
+    const previous = () => {
+        
+        if (slideShow.current.children.length > 0) {
+            
+            //identificamos el último elemento
+            const index = slideShow.current.children.length - 1;
+            const lastItem = slideShow.current.children[index];
+
+            slideShow.current.insertBefore(lastItem, slideShow.current.firstChild);
+
+            //sacamos el tamaño del slide
+            const widthSlide = slideShow.current.children[0].offsetWidth; 
+
+            slideShow.current.style.transition = 'none';
+            slideShow.current.style.transform = `translateX(-${widthSlide}px)`;
+
+            setTimeout(() => {
+                slideShow.current.style.transition = '1000ms ease-out all';
+                slideShow.current.style.transform = `translateX(0)`;
+            }, 30);
+        }
+    }
+    
+
+   /*  //bucle infinito del carousel
+    useEffect(() => {
+        
+        intervalSlide.current = setInterval(() => {
+            after();
+        }, 5000);
+
+        slideShow.current.addEventListener('mouseenter', () => {
+            clearInterval(intervalSlide.current);
+        });
+
+        slideShow.current.addEventListener('mouseleave', () => {
+            intervalSlide.current = setInterval(() => {
+                after();
+            }, 5000);
+        });
+
+    }, []) */
+    
+
+
+    return (
+        <section className='carousel'>
+            <article className="containerSlide" ref={slideShow}>
+                <div className='slide'>
+                    <img src={process.env.PUBLIC_URL + "/assets/image/decoHeader1.jpg"} />
+                    <div className='textSlide'>
+                        <p className="legend">Deco</p>
+                    </div>
+                </div>
+                <div className='slide'>
+                    <img src={process.env.PUBLIC_URL + '/assets/image/decoHeader2.png'} />
+                    <div className='textSlide'>
+                        <p className="legend">Hogar</p>
+                    </div>
+                </div>
+                <div className='slide'>
+                    <img src={process.env.PUBLIC_URL + "/assets/image/decoHeader3.png"} />
+                    <div className='textSlide'>
+                        <p className="legend">Asesoramiento personalizado</p>
+                    </div>
+                </div>
+            </article>
+
+            <div className='controlsButton'>
+                <button className='buttonLeft' onClick={previous}>
+                    <i><FontAwesomeIcon icon={faChevronLeft} /></i>
+                </button>
+                <button className='buttonRigth' onClick={after}>
+                    <i><FontAwesomeIcon icon={faChevronRight} /></i>
+                </button>
+            </div>
+
+        </section>
+    )
+}
+
+export { Hero }

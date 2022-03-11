@@ -6,4 +6,8 @@ export const getFetchs = new Promise((res) => {
     }, 3000);
 });
 
-
+export const getItems = new Promise((res) => {
+    setTimeout(() => {
+        res(data);
+    }, 2000);
+});
