@@ -7,11 +7,15 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url(../../../../../public/assets/image/decoHeader2.png);
+    background-image: url(../../../../../public/assets/image/decoHeader2.jpeg);
+    opacity: .7;
     background-position: center;
     background-size: cover;
     border-radius: 0.55em;
     height: 13em ;
+    -webkit-box-shadow: 0px -5px 19px 6px #00000040;
+    -moz-box-shadow: 0px -5px 19px 6px #00000040;
+    box-shadow: 0px -5px 19px 6px #00000040;
 }
 .cardInfo h2{
     color: #fff;

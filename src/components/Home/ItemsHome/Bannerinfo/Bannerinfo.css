@@ -1,0 +1,57 @@
+.containerBanner{
+    padding: 5em;
+    padding-bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #fff;
+}
+.cardBanner{
+    padding: 0 2.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+.cardBanner img{
+    width: 7em;
+    height: 7em;
+    padding-bottom:1em ;
+}
+.cardBanner h2{
+    font-size: 1.2em;
+    line-height: 200%;
+}
+.cardBanner p {
+    font-size: .9em;
+    line-height: 120%;
+}
+
+/***linea lateral***/
+.line{
+    border-right: 1px solid rgba(85, 85, 85, 0.363);
+}
+
+/**LeyBanner**/
+
+.containerLeyBanner{
+    background-color: #fff;
+}
+
+
+/*****media queries***/
+
+@media screen and (max-width: 1200px) {
+    .containerBanner{
+        flex-wrap: wrap;
+        padding: 2.5em 1em 0 1em;
+    }
+    .cardBanner {
+        margin-bottom: 2em;
+        width: 100%;
+        height: auto;
+    }
+    .line{
+        border: none;
+    }
+}

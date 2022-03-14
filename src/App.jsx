@@ -5,6 +5,7 @@ import { Home } from "./components/Home/Home";
 import { ItemListContainer } from "./components/ListContainer/ItemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/ListContainer/ItemDetailContainer/ItemDetailContainer";
 import { Cart } from "./components/Cart/Cart";
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -13,8 +14,6 @@ function App() {
         <header>
           <NavBar />
         </header>
-
-
         <main>
           <Routes>
             <Route path='/' element={<Home />} />
@@ -25,7 +24,7 @@ function App() {
           </Routes>
         </main>
         <footer>
-
+          <Footer/>
         </footer>
       </div>
     </BrowserRouter>

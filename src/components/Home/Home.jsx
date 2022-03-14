@@ -1,4 +1,5 @@
 import './Home.css';
+import { Bannerinfo } from './ItemsHome/Bannerinfo/Bannerinfo';
 import { Cards } from './ItemsHome/Cards/Cards';
 import { Hero } from './ItemsHome/Hero/Hero';
 import { Info } from './ItemsHome/Info/Info';
@@ -11,9 +12,7 @@ const Home = () => {
             <Cards />
             <Promo />
             <Info />
-            {/*
-            <Salient/>
-             */} 
+            <Bannerinfo/>
         </div>
     )
 }

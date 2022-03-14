@@ -6,7 +6,7 @@ import './Hero.css';
 const Hero = () => {
 
     const slideShow = useRef(null);
-    /* const intervalSlide = useRef(null); */
+    const intervalSlide = useRef(null);
 
     //boton de siguiente
     const after = () => {
@@ -62,44 +62,23 @@ const Hero = () => {
     }
     
 
-   /*  //bucle infinito del carousel
-    useEffect(() => {
-        
-        intervalSlide.current = setInterval(() => {
-            after();
-        }, 5000);
-
-        slideShow.current.addEventListener('mouseenter', () => {
-            clearInterval(intervalSlide.current);
-        });
-
-        slideShow.current.addEventListener('mouseleave', () => {
-            intervalSlide.current = setInterval(() => {
-                after();
-            }, 5000);
-        });
-
-    }, []) */
-    
-
-
     return (
         <section className='carousel'>
             <article className="containerSlide" ref={slideShow}>
                 <div className='slide'>
-                    <img src={process.env.PUBLIC_URL + "/assets/image/decoHeader1.jpg"} />
+                    <img src={process.env.PUBLIC_URL + "/assets/image/decoHeader1.jpeg"} />
                     <div className='textSlide'>
                         <p className="legend">Deco</p>
                     </div>
                 </div>
                 <div className='slide'>
-                    <img src={process.env.PUBLIC_URL + '/assets/image/decoHeader2.png'} />
+                    <img src={process.env.PUBLIC_URL + '/assets/image/decoHeader2.jpeg'} />
                     <div className='textSlide'>
                         <p className="legend">Hogar</p>
                     </div>
                 </div>
                 <div className='slide'>
-                    <img src={process.env.PUBLIC_URL + "/assets/image/decoHeader3.png"} />
+                    <img src={process.env.PUBLIC_URL + "/assets/image/decoHeader3.jpeg"} />
                     <div className='textSlide'>
                         <p className="legend">Asesoramiento personalizado</p>
                     </div>
