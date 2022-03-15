@@ -13,10 +13,10 @@ This proyect is a E-commerce of home decoration products. It aims to provide the
 ***
 <figure style="text-align: center">
    <img 
-    alt="GIF animado donde se muestran algunas funcionalidades del proyecto"
+    alt="Animated GIF showing some features it offers"
     with="350" 
     height="350" 
-    src="https://drive.google.com/file/d/1cKbl4oAdAfkwxzLzWmZ-SNoOyu6qRtsW/view?usp=sharing" 
+    src="https://lh6.googleusercontent.com/GGYjX4BN7WjbgirkQFBgfp736U4iKR6AiC5ORsqK3WaS20TxKuMjGAwjdZol68dLXDJVdpMMsE-1uQ=w1280-h581-rw" 
   />
   <figcaption>Animated GIF showing some features it offers</figcaption>
 </figure>
