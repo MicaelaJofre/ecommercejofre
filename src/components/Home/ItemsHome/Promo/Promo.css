@@ -52,7 +52,9 @@
 
 @media screen and (max-width: 800px) {
 
-    
+    .containerPromo{
+        padding: 1em;
+    }
     .cardDecoPromo:nth-child(1) {
         grid-area: 1 /1 / span 1 / span 4;
     }

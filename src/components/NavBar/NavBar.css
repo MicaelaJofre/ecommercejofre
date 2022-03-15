@@ -178,15 +178,8 @@
         z-index: 99 ;
         top: 0;
     }
-    .nav ul{
-        display: none;
+    .nav ul {
         background-color: #555;
-        height: 0;
-        width: 0;/* 
-        transform: translateX(-900px);
-        transition: transform ease-in-out 1s; */
-    }
-    .nav ul.active {
         position: absolute;
         display: flex;
         flex-direction: column;
@@ -196,8 +189,14 @@
         padding-top: 3em;
         padding-bottom: 5em;
         background-color: #555;
+        transform: translateX(100vw);
+        transition: all cubic-bezier(.07, .3, .17, 1.01) .4s;
+    }
+
+    .nav ul.active {
         transform: translateX(0);
     }
+    
 
     
     .nav ul li a{
@@ -211,30 +210,19 @@
     .cartPlus {
         display: block;
     }
-    .iconsButton{
-        display: none;
-    }
-    .iconsButton.active {
+    .iconsButton {
         position: absolute;
         display: block;
         width: 100%;
         top: 35em;
         left: 0;
         text-align: center;
-        animation-duration: 1s;
-        animation-name: slidein;
-        }
+        transform: translateX(100vw);
+        transition: all cubic-bezier(.07, .3, .17, 1.01) .4s;
+    }
 
-    @keyframes slidein {
-        from {
-            margin-right: 100%;
-            width: 300%
-        }
-
-        to {
-            margin-right: 0%;
-            width: 100%;
-        }
+    .iconsButton.active {
+        transform: translateX(0);
     }
     .icons button{
         background: #888;

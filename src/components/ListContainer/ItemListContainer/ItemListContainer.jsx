@@ -17,9 +17,6 @@ const ItemListContainer = () => {
         if (categoryId) {
             
             getFetchs
-                .then((data) => {
-                    return data;
-                })
                 .then((data) => setProds(data.filter(prod => prod.category === categoryId)))
                 .catch((err) => console.log(err))
                 .finally(() => setLoading(false))

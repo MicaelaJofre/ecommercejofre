@@ -14,9 +14,6 @@ const ItemDetailContainer = () => {
     //promesa
     useEffect(() => {
         getItems
-            .then((data) => {
-                return data;
-            })
             .then((data) => setItem(data.find(prod => prod.id === detailId)))
             .catch((err) => console.log(err))
             .finally(() => setLoading(false))

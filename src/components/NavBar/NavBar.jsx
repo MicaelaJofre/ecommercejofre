@@ -46,7 +46,6 @@ const NavBar = () => {
                 </div>
                 <ButtonHamburger activeClick={activeClick} handleClick={handleClick} />
             </nav>
-            <div className={`bgDiv ${activeClick ? 'active' : ''} `}></div>
         </div>
     )
 }

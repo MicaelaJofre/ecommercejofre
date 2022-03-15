@@ -19,9 +19,22 @@
 }
 .cardInfo h2{
     color: #fff;
+    padding: .5em;
     padding-bottom: 1em;
+    text-align: center;
 }
 .cardInfo a{
     color: #fff;
     cursor: pointer;
+}
+@media screen and (max-width: 800px) {
+    .containerInfo{
+        padding: 1em;
+    }
+    .cardInfo h2{
+        font-size: .9em;
+    }
+    .cardInfo a{
+        font-size: .8em;
+    }
 }
