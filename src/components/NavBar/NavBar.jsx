@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState , useEffect} from 'react';
 import { NavLink } from "react-router-dom";
 import './NavBar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -14,6 +14,16 @@ const NavBar = () => {
     const handleClick = () => {
         setClicked(!activeClick);
     }
+
+    useEffect(() => {
+        const submenu = document.querySelector(".nav > ul").getElementsByTagName("li");
+        for (let item of submenu) {
+            item.addEventListener("click", () => {
+                setClicked(false);
+            })
+        }
+
+    }, [])
 
     return (
         <div className='containerNav'>

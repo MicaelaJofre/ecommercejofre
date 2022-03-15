@@ -189,7 +189,7 @@
         padding-top: 3em;
         padding-bottom: 5em;
         background-color: #555;
-        transform: translateX(100vw);
+        transform: translateX(-100vw);
         transition: all cubic-bezier(.07, .3, .17, 1.01) .4s;
     }
 
@@ -217,7 +217,7 @@
         top: 35em;
         left: 0;
         text-align: center;
-        transform: translateX(100vw);
+        transform: translateX(-100vw);
         transition: all cubic-bezier(.07, .3, .17, 1.01) .4s;
     }
 
