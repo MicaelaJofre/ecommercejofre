@@ -13,12 +13,12 @@ This proyect is a E-commerce of home decoration products. It aims to provide the
 ***
 <figure style="text-align: center">
    <img 
-    alt="Animated GIF showing some features it offers"
+    alt="Website screenshot"
     with="350" 
     height="350" 
     src='./public/assets/image/readme.jpg'
   />
-  <figcaption>Animated GIF showing some features it offers</figcaption>
+  <figcaption>Website screenshot</figcaption>
 </figure>
 
 ## Technologies
