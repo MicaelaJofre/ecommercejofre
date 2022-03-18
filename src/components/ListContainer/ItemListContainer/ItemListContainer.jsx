@@ -8,19 +8,28 @@ import { useParams } from "react-router-dom";
 
 const ItemListContainer = () => {
 
+    //filtro subcategoria
+    const [subcategory, setSubcategory] = useState(false);
+
+    useEffect(() => {
+        /* console.log(subcategory) */
+    },[subcategory]);
+
+
+    //productos
     const [prods, setProds] = useState([]);
     const [loading, setLoading] = useState(true);
     const { categoryId } = useParams();
 
     //promesa
     useEffect(() => {
+
         if (categoryId) {
-            
-            getFetchs
-                .then((data) => setProds(data.filter(prod => prod.category === categoryId)))
-                .catch((err) => console.log(err))
-                .finally(() => setLoading(false))
-        }
+                getFetchs
+                    .then((data) => setProds(data.filter(prod => prod.category === categoryId)))
+                    .catch((err) => console.log(err))
+                    .finally(() => setLoading(false))
+            }      
     }, [categoryId])
 
     //contador
@@ -29,13 +38,16 @@ const ItemListContainer = () => {
             console.log(count);
         }
     }
-
-
-
+    
     return(
         <div className='itemListContainer'>
             <aside className='asideDeco'>
-                <Aside />
+                {
+                    loading ? <div ></div>
+                        :
+                        <Aside prods={prods} setSubcategory={setSubcategory} />
+                }
+                
             </aside>
             <section className='cardsItemContainer'>
                 {

@@ -1,26 +1,61 @@
-import React from 'react';
+import {useState} from 'react';
 
-const Aside = () => {
+const Aside = ({ prods, setSubcategory }) => {
+
+
+    // filtrar subcategoria
+    const subCategory = prods.map(prod => prod.sub_category);
+
+    const result = subCategory.filter((item, index) => {
+        return subCategory.indexOf(item) === index;
+    })
+
+    //filtrar por checkbox
+    // colocar todos como falsos los checkbox
+    /* const [checkedState, setCheckedState] = useState(
+        new Array(result.length).fill(false)
+    );
+ */
+    //funcion para recorrer los checkbox 
+    /* const filterCheckbox = (position) => {
+
+        const updatedCheckedState = checkedState.map((item, index) =>{
+            index === position ? !item : item
+        });
+        setCheckedState(updatedCheckedState)
+    }  */
+    
+   /*  const filterCheckbox = ((e)=> {
+        let { name, value } = e.target;
+        let opciones = [...result];
+        let indice = opciones.findIndex(x => x === name);
+        opciones[indice].check = !opciones[indice].check;
+    });
+    setSubcategory ( indice)
+    } */
+    
     return (
         <>
-            <h1>Decoración</h1>
-            <p>10 resultados</p>
+            <h1>{prods[0].category}</h1>
+            <p>{prods.length} resultados</p>
             <form className='formAsideDeco' action="">
                 <div>
                     <legend>Categorías</legend>
-                    <div>
+                    {result.map((prod, index) => {
+                        return (
+                            <div key={index}>
+                                <label><input
+                                    type='checkbox'
+                                    name={prod}
+                                    value='false'/* 
+                                    onChange={() =>  filterCheckbox(e)}
+                                    checked={checkedState[index]} */
+                                    />{prod}</label>
+                            </div>
+                        )
 
-                        <label><input type='checkbox' />Jarrones y floreros</label>
-                    </div>
-                    <div>
-                        <label><input type='checkbox' />Adornos</label>
-                    </div>
-                    <div>
-                        <label><input type='checkbox' />Organizadores</label>
-                    </div>
-                    <div>
-                        <label><input type='checkbox' />Espejos</label>
-                    </div>
+                    })}
+
                 </div>
                 <div>
                     <div>
@@ -42,6 +77,7 @@ const Aside = () => {
                 </div>
             </form>
         </>
+
     )
 }
 

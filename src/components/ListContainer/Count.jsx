@@ -1,6 +1,23 @@
 import React from 'react';
 import './Count.css';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+
+//boton para ir al carrito
+const BtnCart = () => {
+    return (
+        <Link to= '/cart'>
+            <button>Ir al carrito</button>
+        </Link>
+    )
+}
+
+// boton para agregar al carrito
+const BtnCount = ({ addCart, onAdd, count, stock })=>{
+    return (
+        <button onClick={() => { if (stock !== 0) { onAdd(count); addCart()} }}>Agregar al carrito</button>
+    )
+}
 
 const Count = ({ onAdd, initial, stock }) => {
 
@@ -18,6 +35,14 @@ const Count = ({ onAdd, initial, stock }) => {
         }
     }
 
+
+    //estado del boton
+    const [buttonType, setButtonType] = useState('button');
+
+    const addCart = () => {
+        setButtonType('input');
+    }
+
     return (
         <>
             <div className="countCards">
@@ -25,7 +50,11 @@ const Count = ({ onAdd, initial, stock }) => {
                 <p>{count}</p>
                 <p onClick={addProduct}>+</p>
             </div>
-            <button onClick={() => { if (stock !== 0) onAdd(count) }}>Agregar al carrito</button>
+            {
+                buttonType === 'button'
+                    ? <BtnCount addCart={addCart} onAdd={onAdd} count={count} stock={stock} />
+                    : <BtnCart  />
+            }
         </>
     )
 }
