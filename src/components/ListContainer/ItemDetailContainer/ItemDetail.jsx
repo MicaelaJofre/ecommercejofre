@@ -3,6 +3,7 @@ import { faCreditCard, faMoneyBill1 } from '@fortawesome/free-solid-svg-icons';
 import { Count } from "../../ListContainer/Count";
 import { ContainerLeyCompra } from '../ContainerLeyCompra';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const ItemDetail = ({ item }) => {
     
@@ -37,7 +38,13 @@ const ItemDetail = ({ item }) => {
                     </div>
                     <hr />
                     <p className='textCant'>Cantidad</p>
-                    <Count initial={1} stock={5} onAdd={onAdd} />
+                    {
+                        count 
+                            ? <Link to='/cart'>
+                                <button>Ir al carrito</button>
+                            </Link>
+                            : <Count initial={1} stock={5} onAdd={onAdd} />
+                    }
                 </div>
             </section>
             <article>
