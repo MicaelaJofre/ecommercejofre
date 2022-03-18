@@ -1,38 +1,29 @@
 import {useState} from 'react';
 
-const Aside = ({ prods, setSubcategory }) => {
+const Aside = ({ prods, setSubcategory, subcategory }) => {
 
 
     // filtrar subcategoria
-    const subCategory = prods.map(prod => prod.sub_category);
+    const subcate = prods.map(prod => prod.sub_category);
 
-    const result = subCategory.filter((item, index) => {
-        return subCategory.indexOf(item) === index;
+    const result = subcate.filter((item, index) => {
+        return subcate.indexOf(item) === index;
     })
 
     //filtrar por checkbox
-    // colocar todos como falsos los checkbox
-    /* const [checkedState, setCheckedState] = useState(
-        new Array(result.length).fill(false)
-    );
- */
-    //funcion para recorrer los checkbox 
-    /* const filterCheckbox = (position) => {
-
-        const updatedCheckedState = checkedState.map((item, index) =>{
-            index === position ? !item : item
-        });
-        setCheckedState(updatedCheckedState)
-    }  */
     
-   /*  const filterCheckbox = ((e)=> {
-        let { name, value } = e.target;
-        let opciones = [...result];
-        let indice = opciones.findIndex(x => x === name);
-        opciones[indice].check = !opciones[indice].check;
+    const filterCheckbox = ((e)=> {
+        let {name} = e.target;
+        let currentFilters = [...subcategory];
+
+        if (e.target.checked) {
+            currentFilters = [name, ...currentFilters]
+        } else {
+            currentFilters = currentFilters.filter(x=> x != name)
+        }
+        setSubcategory(currentFilters)
     });
-    setSubcategory ( indice)
-    } */
+    
     
     return (
         <>
@@ -41,15 +32,14 @@ const Aside = ({ prods, setSubcategory }) => {
             <form className='formAsideDeco' action="">
                 <div>
                     <legend>Categorías</legend>
-                    {result.map((prod, index) => {
+                    {result.map((prod) => {
                         return (
-                            <div key={index}>
+                            <div key={prod}>
                                 <label><input
                                     type='checkbox'
                                     name={prod}
-                                    value='false'/* 
-                                    onChange={() =>  filterCheckbox(e)}
-                                    checked={checkedState[index]} */
+                                    value='false'
+                                    onChange={filterCheckbox}
                                     />{prod}</label>
                             </div>
                         )

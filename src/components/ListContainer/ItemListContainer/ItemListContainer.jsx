@@ -9,12 +9,20 @@ import { useParams } from "react-router-dom";
 const ItemListContainer = () => {
 
     //filtro subcategoria
-    const [subcategory, setSubcategory] = useState(false);
+    const [subcategory, setSubcategory] = useState([]);
+
+    const [filterProds, setFilterProds] = useState([])
 
     useEffect(() => {
-        /* console.log(subcategory) */
+        
+        setFilterProds(prods.filter(prod => {
+            if (subcategory.includes(prod.sub_category)) {
+                return prod;
+            }
+        }))
+        
     },[subcategory]);
-
+    
 
     //productos
     const [prods, setProds] = useState([]);
@@ -23,6 +31,9 @@ const ItemListContainer = () => {
 
     //promesa
     useEffect(() => {
+
+        // borra los filtros cuando cambia de categoria
+        setFilterProds([]);
 
         if (categoryId) {
                 getFetchs
@@ -45,7 +56,7 @@ const ItemListContainer = () => {
                 {
                     loading ? <div ></div>
                         :
-                        <Aside prods={prods} setSubcategory={setSubcategory} />
+                        <Aside prods={prods} setSubcategory={setSubcategory} subcategory={subcategory} />
                 }
                 
             </aside>
@@ -53,7 +64,7 @@ const ItemListContainer = () => {
                 {
                     loading ? <div className="loader" id="loader"></div>
                             : 
-                        < ItemList onAdd={onAdd} prods={prods} />   
+                        < ItemList onAdd={onAdd} prods={filterProds.length > 0 ? filterProds : prods} />   
                 }
                 
             </section>

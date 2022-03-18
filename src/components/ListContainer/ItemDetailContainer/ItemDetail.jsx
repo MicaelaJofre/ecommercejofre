@@ -12,7 +12,6 @@ const ItemDetail = ({ item }) => {
 
     const onAdd = (count) => {
         if (count !== 0) {
-            console.log(count);
             setCount(count);
         }
     }
