@@ -1,11 +1,13 @@
 import React from 'react';
 import './Count.css';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { UseContextAllIn } from '../../context/CartContext';
 
 
 
 const Count = ({ onAdd, initial, stock }) => {
+
+    const { countCartIcon } = UseContextAllIn();
 
     //contador
     const [count, setCount] = useState(initial);
@@ -34,7 +36,7 @@ const Count = ({ onAdd, initial, stock }) => {
                 <p>{count}</p>
                 <p onClick={addProduct}>+</p>
             </div>
-            <button onClick={addCart}>Agregar al carrito</button>
+            <button onClick={ addCart }>Agregar al carrito</button>
         </>
     )
 }

@@ -1,8 +1,24 @@
 import { Link } from 'react-router-dom';
 import { Count } from '../../Count';
 import "../ItemListContainer.css";
+import { UseContextAllIn } from '../../../../context/CartContext';
+import { useState } from 'react';
 
-const Items = ({ prod, onAdd }) => {
+const Items = ({ prod}) => {
+
+
+    //traemos la funcion del contexto
+    const { addListCart} = UseContextAllIn();
+
+    //contador
+    const [count, setCount] = useState(null);
+
+    const onAdd = (count) => {
+        if (count !== 0) {
+            setCount(count);
+            addListCart({ ...prod, quantity: count });
+        }
+    }
 
     return (
         <div key={prod.id}>
@@ -20,7 +36,13 @@ const Items = ({ prod, onAdd }) => {
                 <div className="cardsFees">
                     <h3>3 cuotas sin interés de ${prod.quota}</h3>
                 </div>
-                <Count onAdd={onAdd} initial={1} stock={5} />
+                {
+                    count
+                        ? <Link to='/cart'>
+                            <button>Ir al carrito</button>
+                        </Link>
+                        : <Count initial={1} stock={5} onAdd={onAdd} />
+                }
             </div>
         </div>
     )

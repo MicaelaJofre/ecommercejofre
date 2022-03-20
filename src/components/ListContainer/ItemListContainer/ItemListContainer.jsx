@@ -43,12 +43,7 @@ const ItemListContainer = () => {
             }      
     }, [categoryId])
 
-    //contador
-    const onAdd = (count) => {
-        if (count !== 0) {
-            console.log(count);
-        }
-    }
+    
     
     return(
         <div className='itemListContainer'>
@@ -64,7 +59,7 @@ const ItemListContainer = () => {
                 {
                     loading ? <div className="loader" id="loader"></div>
                             : 
-                        < ItemList onAdd={onAdd} prods={filterProds.length > 0 ? filterProds : prods} />   
+                        < ItemList  prods={filterProds.length > 0 ? filterProds : prods} />   
                 }
                 
             </section>

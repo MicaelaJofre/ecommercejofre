@@ -6,15 +6,13 @@ import { ItemListContainer } from "./components/ListContainer/ItemListContainer/
 import { ItemDetailContainer } from "./components/ListContainer/ItemDetailContainer/ItemDetailContainer";
 import { Cart } from "./components/Cart/Cart";
 import { Footer } from "./components/Footer/Footer";
-import { CartContext } from "./context/CartContext";
+import UseContextAllIn from "./context/CartContext";
 
 function App() {
-  const prueba =()=>{console.log()}
+
   return (
     <BrowserRouter>
-      <CartContext.Provider value={
-        prueba
-      }>
+      <UseContextAllIn >
         < div className="App" >
           <header>
             <NavBar />
@@ -32,7 +30,7 @@ function App() {
             <Footer />
           </footer>
         </div>
-      </CartContext.Provider>
+      </UseContextAllIn>
     </BrowserRouter>
   );
 }

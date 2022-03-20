@@ -4,17 +4,24 @@ import { Count } from "../../ListContainer/Count";
 import { ContainerLeyCompra } from '../ContainerLeyCompra';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import{ UseContextAllIn } from '../../../context/CartContext';
 
 const ItemDetail = ({ item }) => {
     
+    //traemos la funcion del contexto
+    const { addListCart } = UseContextAllIn();
+
     //contador
     const [count, setCount] = useState(null);
 
+    
     const onAdd = (count) => {
         if (count !== 0) {
             setCount(count);
+            addListCart({...item, quantity : count});
         }
     }
+
     return (
         <>
             <section className="containerDetail">

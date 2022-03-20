@@ -21,7 +21,7 @@
         "description": "Macetas de playmobil o Star Wars. Todas pintadas a mano, hechas en cemento.",
         "category": "deco",
         "sub_category": "jarrones y floreros",
-        "shipping": true
+        "shipping": false
     },
     {
         "id":"3",
@@ -45,7 +45,7 @@
         "description": "Cesto Organizador Plegable de Bamboo Chico.Ideal para organizar el baño, dormitorio o cualquier otro espacio!",
         "category": "deco",
         "sub_category": "organizadores",
-        "shipping": true
+        "shipping": false
     },
     {
         "id": "5",
@@ -81,7 +81,7 @@
         "description": "Hipopótamo decorativo de ceramica. Mide 13 cm de ala a la y 10 cm de cabeza a cola.",
         "category": "deco",
         "sub_category": "adornos",
-        "shipping": true
+        "shipping": false
     },
     {
         "id": "8",
@@ -105,7 +105,7 @@
         "description": "Espejo Cristal Float Primera Calidad. Tamaño 100 x 60 cm. Marco espejo bordes pulidos. Dos segmentos por lado.",
         "category": "deco",
         "sub_category": "espejos",
-        "shipping": true
+        "shipping": false
     },
     {
         "id": "10",
@@ -129,7 +129,7 @@
         "description": "Florero color negro de cerámica bajo. Medidas: 8 cm de diámetro x 14 cm de alto.Boca 3, 5 cm de diámetro.",
         "category": "deco",
         "sub_category": "jarrones y floreros",
-        "shipping": true
+        "shipping": false
     },
     {
         "id": "12",
@@ -179,7 +179,7 @@
         "description": "Cucharon Silicona Simil Marmol, con mango de madera. Diferentes estilos de cuchara para elegir. Miden 32 cm de largo.",
         "category": "bazar",
         "sub_category": "utensilios",
-        "shipping": true
+        "shipping": false
     },
     {
         "id": "16",
@@ -203,7 +203,7 @@
         "description": "Servilleteros Porta Servilletas Set X6 con forma de cabeza de oso, arce y conejo. Vienen dos de cada animal.",
         "category": "bazar",
         "sub_category": "vajilla",
-        "shipping": true
+        "shipping": false
     },
     {
         "id": "18",
@@ -241,7 +241,7 @@
         "description": "Cuadro Lienzos cartográficos europeos enmarcados con delicada varilla color madera.",
         "category": "cuadros",
         "sub_category": "cuadros",
-        "shipping": true
+        "shipping": false
     },
     {
         "id": "22",
@@ -280,7 +280,7 @@
         "description": "Almohadones decorativos. Realizados en tela .Una funda (40x40 o 50x30) mas su correspondiente relleno.",
         "category": "textil",
         "sub_category": "almohadones",
-        "shipping": true
+        "shipping": false
     },
     {
         "id": "25",
