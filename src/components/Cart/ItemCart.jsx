@@ -1,26 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash, faStore } from '@fortawesome/free-solid-svg-icons';
 import { UseContextAllIn } from "../../context/CartContext";
-import { useEffect, useState } from 'react';
 
 const ItemCart = () => {
 
-    const { cartList, emptyCard, deletProd } = UseContextAllIn();
-    const [subTotal, setSubTotal] = useState(0);
+    const { cartList, emptyCard, deletProd, subTotal } = UseContextAllIn();
+    
 
     const shipping = 500;
-    // calcular el subtotal
-    useEffect(() => {
-        const total = () => {
-            let res = 0;
-            cartList.forEach(prod => {
-                res += prod.quantity * prod.price; 
-            });
-            setSubTotal(res);
-        }
-        total();
-    }, [cartList])
-    
 
     return (
         <>

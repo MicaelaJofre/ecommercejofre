@@ -340,7 +340,7 @@
         "description": "Fabricada con materiales duraderos, liviana y con excelente terminación con borde en overlock.",
         "category": "textil",
         "sub_category": "alfombra",
-        "shipping": true
+        "shipping": false
     },
     {
         "id": "30",

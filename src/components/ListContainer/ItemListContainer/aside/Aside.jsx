@@ -1,6 +1,6 @@
-import {useState} from 'react';
 
-const Aside = ({ prods, setSubcategory, subcategory }) => {
+
+const Aside = ({ prods, setSubcategory, subcategory, setShippingFilter }) => {
 
 
     // filtrar subcategoria
@@ -9,7 +9,7 @@ const Aside = ({ prods, setSubcategory, subcategory }) => {
     const result = subcate.filter((item, index) => {
         return subcate.indexOf(item) === index;
     })
-
+    
     //filtrar por checkbox
     
     const filterCheckbox = ((e)=> {
@@ -17,14 +17,21 @@ const Aside = ({ prods, setSubcategory, subcategory }) => {
         let currentFilters = [...subcategory];
 
         if (e.target.checked) {
-            currentFilters = [name, ...currentFilters]
+            currentFilters = [name, ...currentFilters];
         } else {
-            currentFilters = currentFilters.filter(x=> x != name)
+            currentFilters = currentFilters.filter(x => x != name);
         }
-        setSubcategory(currentFilters)
+        setSubcategory(currentFilters);
     });
     
-    
+    // filtrar checkbox envio gratis
+
+    const checkShipping = (e) => {
+        setShippingFilter(e.target.checked)
+    }
+
+
+
     return (
         <>
             <h1>{prods[0].category}</h1>
@@ -50,7 +57,7 @@ const Aside = ({ prods, setSubcategory, subcategory }) => {
                 <div>
                     <div>
                         <legend>Envío</legend>
-                        <label><input type='checkbox' />Envío gratis</label>
+                        <label><input type='checkbox' name={prods.shipping} onChange={ checkShipping }/>Envío gratis</label>
                     </div>
                 </div>
                 <div>
