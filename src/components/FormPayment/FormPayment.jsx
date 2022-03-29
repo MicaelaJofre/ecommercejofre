@@ -15,6 +15,7 @@ const FormPayment = () => {
 
     const [newOrder, setNewOrder] = useState('');
 
+    window.scrollTo(0, 0);
     
     //iniciar compra
     const handleOrder = async (e) => {

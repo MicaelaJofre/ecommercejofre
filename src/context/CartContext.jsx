@@ -19,14 +19,10 @@ const CartContexFilter = ({ children }) => {
     const addListCart = (item) => {
         
         if (cartList.length > 0) {
-            cartList.forEach(prod => {
-                if (prod.id === item.id) {
-                    item.quantity += prod.quantity;
-                } 
-            });
-            setCartList([...cartList.filter(prod => prod.id !== item.id), item])
+            cartList.forEach(prod =>prod.id === item.id && (item.quantity += prod.quantity));
+            setCartList([...cartList.filter(prod => prod.id !== item.id), item]);
         } else {
-            setCartList([...cartList, item])
+            setCartList([...cartList, item]);
         }
     }
 
@@ -43,9 +39,7 @@ const CartContexFilter = ({ children }) => {
     //contador subtotal
     const totalPrice = () => {
         let res = 0;
-        cartList.forEach(prod => {
-            res += prod.quantity * prod.price;
-        });
+        cartList.forEach(prod =>res += prod.quantity * prod.price);
         setSubTotal(res);
     }
 
