@@ -30,11 +30,16 @@ const ItemListContainer = () => {
     
         window.scrollTo(0, 0);
 
+        //filtros para envio - precio - sub-categoria
         const db = getFirestore();
         const queryCollection = collection(db, 'items');
+
         let queryFilter = query(queryCollection, where('category', '==', categoryId));
+
         queryFilter = shippingFilter ? query(queryFilter, where('shipping', '==', true)) : queryFilter;
+
         queryFilter = subcategory.length > 0 ? query(queryFilter, where('sub_category', 'in', subcategory)) : queryFilter;
+
         queryFilter = priceFilter === '1'
                         ? query(queryFilter, where('price', '<', 1000))
                         :  priceFilter === '2'
@@ -43,36 +48,11 @@ const ItemListContainer = () => {
                                 ? query(queryFilter, where('price', '>=', 2000)) 
                                 : queryFilter;
 
-        getDocs(queryFilter)
-            .then(res => {
-                setFilterProds(res.docs.map(item => ({ id: item.id, ...item.data() })));
-            })
-            .catch((err) => console.log(err))
-
-        /* let array = prods;
-
-        //check envio gratis
-        array = shippingFilter ? array.filter(prod => prod.shipping === shippingFilter) : prods;
-
-        //checks subcategorias
-        array = subcategory.length > 0 ? array.filter(prod => subcategory.includes(prod.sub_category) && prod) : prods;
         
-
-        //check por precio
-        array = array.filter(prod => {
-            if (priceFilter === '1') {
-                return prod.price <= 1000;
-            } else if (priceFilter === '2') {
-                return prod.price >= 1000 && prod.price <= 2000;
-            } else if (priceFilter === '3') {
-                return prod.price >= 2000;
-            } else {
-                return prod;
-            }
-        })
-
-        setFilterProds(array)
- */
+        getDocs(queryFilter)
+            .then(res => setFilterProds(res.docs.map(item => ({ id: item.id, ...item.data() }))))
+            .catch((err) => console.log(err))
+        
     },[subcategory, shippingFilter, priceFilter]);
 
     
