@@ -87,7 +87,15 @@
 
 
 /* media querie */
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1150px) {
+    .itemDetailContainer {
+        padding-top: 5em;
+    }
+}
+@media screen and (max-width: 950px) {
+    .itemDetailContainer{
+        padding-top: 7em;
+    }
     .containerDetail {
         text-align: center;
     }

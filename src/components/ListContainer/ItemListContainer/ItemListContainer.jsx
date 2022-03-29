@@ -1,12 +1,20 @@
+import React from 'react';
 import "./ItemListContainer.css";
 import { ItemList } from './cards/ItemList';
 import {  useEffect, useState } from "react";
 import { Aside } from "./aside/Aside";
-import { getFetchs } from "../../../helpers/getFetchs";
 import { useParams } from "react-router-dom";
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
 
 
 const ItemListContainer = () => {
+
+    //productos
+    const [prods, setProds] = useState([]);
+
+    const [loading, setLoading] = useState(true);
+
+    const { categoryId } = useParams();
 
     //filtro subcategoria
     const [subcategory, setSubcategory] = useState([]);
@@ -15,46 +23,84 @@ const ItemListContainer = () => {
 
     const [shippingFilter, setShippingFilter] = useState(false);
 
+    const [priceFilter, setPriceFilter] = useState('0');
+
     
     useEffect(() => {
-        //check envio gratis
-        let array = prods;
-        if (shippingFilter) {
-            array = prods.filter(prod => prod.shipping === shippingFilter);
-        }
-        //checks subcategorias
-        if (subcategory.length > 0) {
-            array = array.filter(prod => {
-                if (subcategory.includes(prod.sub_category)) {
-                    return prod;
-                }
-            })
-        }
-        //check por precio
-        setFilterProds(array)
-    },[subcategory, shippingFilter]);
+    
+        window.scrollTo(0, 0);
 
-    //productos
-    const [prods, setProds] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const { categoryId } = useParams();
+        const db = getFirestore();
+        const queryCollection = collection(db, 'items');
+        let queryFilter = query(queryCollection, where('category', '==', categoryId));
+        queryFilter = shippingFilter ? query(queryFilter, where('shipping', '==', true)) : queryFilter;
+        queryFilter = subcategory.length > 0 ? query(queryFilter, where('sub_category', 'in', subcategory)) : queryFilter;
+        queryFilter = priceFilter === '1'
+                        ? query(queryFilter, where('price', '<', 1000))
+                        :  priceFilter === '2'
+                            ? query(queryFilter, where('price', '>=', 1000), where('price', '<', 2000))
+                            : priceFilter === '3'
+                                ? query(queryFilter, where('price', '>=', 2000)) 
+                                : queryFilter;
+
+        getDocs(queryFilter)
+            .then(res => {
+                setFilterProds(res.docs.map(item => ({ id: item.id, ...item.data() })));
+            })
+            .catch((err) => console.log(err))
+
+        /* let array = prods;
+
+        //check envio gratis
+        array = shippingFilter ? array.filter(prod => prod.shipping === shippingFilter) : prods;
+
+        //checks subcategorias
+        array = subcategory.length > 0 ? array.filter(prod => subcategory.includes(prod.sub_category) && prod) : prods;
+        
+
+        //check por precio
+        array = array.filter(prod => {
+            if (priceFilter === '1') {
+                return prod.price <= 1000;
+            } else if (priceFilter === '2') {
+                return prod.price >= 1000 && prod.price <= 2000;
+            } else if (priceFilter === '3') {
+                return prod.price >= 2000;
+            } else {
+                return prod;
+            }
+        })
+
+        setFilterProds(array)
+ */
+    },[subcategory, shippingFilter, priceFilter]);
+
+    
 
     //promesa
     useEffect(() => {
-
+        
         // borra los filtros cuando cambia de categoria
         setFilterProds([]);
-        window.scrollTo(0, 0);
+        setShippingFilter(false); 
+        setSubcategory([]);
+        setPriceFilter('0');
+        setLoading(true);
 
-        if (categoryId) {
-                getFetchs
-                    .then((data) => {
-                        setProds(data.filter(prod => prod.category === categoryId));
-                        setFilterProds(data.filter(prod => prod.category === categoryId))
-                    })
-                    .catch((err) => console.log(err))
-                    .finally(() => setLoading(false))
-            }      
+        window.scrollTo(0, 0);
+        
+        const db = getFirestore();
+        const queryCollection = collection(db, 'items');
+        let queryFilter = query(queryCollection, where('category', '==', categoryId));
+        
+        getDocs(queryFilter)
+            .then(res => {
+                setProds(res.docs.map(item => ({ id: item.id, ...item.data() })));
+                setFilterProds(res.docs.map(item => ({ id: item.id, ...item.data() })));
+            })
+            .catch((err) => console.log(err))
+            .finally(() => setLoading(false))
+        
     }, [categoryId])
 
     
@@ -65,15 +111,25 @@ const ItemListContainer = () => {
                 {
                     loading ? <div ></div>
                         :
-                        <Aside prods={prods} setSubcategory={setSubcategory} subcategory={subcategory} setShippingFilter={setShippingFilter} />
+                        <Aside
+                            prods={prods}
+                            setSubcategory={setSubcategory}
+                            subcategory={subcategory}
+                            setShippingFilter={setShippingFilter}
+                            setPriceFilter={setPriceFilter}
+                            shippingFilter={shippingFilter}
+                            priceFilter={priceFilter}
+                        />
                 }
                 
             </aside>
             <section className='cardsItemContainer'>
                 {
-                    loading ? <div className="loader" id="loader"></div>
-                            : 
-                        < ItemList prods= {filterProds} />   
+                    loading
+                        ? <div className="loader" id="loader"></div>
+                        : filterProds.length > 0
+                            ? < ItemList prods={filterProds} />
+                            : <h4 className='emptyH4'>No hay productos disponible</h4>
                 }
                 
             </section>

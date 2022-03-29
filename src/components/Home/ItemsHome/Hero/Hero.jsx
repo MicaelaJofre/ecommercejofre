@@ -1,4 +1,4 @@
-import React, { useRef , useEffect} from 'react';
+import React, { useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import './Hero.css';
@@ -6,7 +6,6 @@ import './Hero.css';
 const Hero = () => {
 
     const slideShow = useRef(null);
-    const intervalSlide = useRef(null);
 
     //boton de siguiente
     const after = () => {
@@ -66,19 +65,19 @@ const Hero = () => {
         <section className='carousel'>
             <article className="containerSlide" ref={slideShow}>
                 <div className='slide'>
-                    <img src={process.env.PUBLIC_URL + "/assets/image/decoHeader1.jpeg"} />
+                    <img src={process.env.PUBLIC_URL + "/assets/image/decoHeader1.jpeg"} alt='deco'/>
                     <div className='textSlide'>
                         <p className="legend">Deco</p>
                     </div>
                 </div>
                 <div className='slide'>
-                    <img src={process.env.PUBLIC_URL + '/assets/image/decoHeader2.jpeg'} />
+                    <img src={process.env.PUBLIC_URL + '/assets/image/decoHeader2.jpeg'} alt='hogar' />
                     <div className='textSlide'>
                         <p className="legend">Hogar</p>
                     </div>
                 </div>
                 <div className='slide'>
-                    <img src={process.env.PUBLIC_URL + "/assets/image/decoHeader3.jpeg"} />
+                    <img src={process.env.PUBLIC_URL + "/assets/image/decoHeader3.jpeg"} alt='asesoramiento personalizado' />
                     <div className='textSlide'>
                         <p className="legend">Asesoramiento personalizado</p>
                     </div>

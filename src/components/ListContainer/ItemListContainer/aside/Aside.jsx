@@ -1,6 +1,6 @@
+import React from 'react';
 
-
-const Aside = ({ prods, setSubcategory, subcategory, setShippingFilter }) => {
+const Aside = ({ prods, setSubcategory, subcategory, setShippingFilter, setPriceFilter, shippingFilter, priceFilter }) => {
 
 
     // filtrar subcategoria
@@ -19,7 +19,7 @@ const Aside = ({ prods, setSubcategory, subcategory, setShippingFilter }) => {
         if (e.target.checked) {
             currentFilters = [name, ...currentFilters];
         } else {
-            currentFilters = currentFilters.filter(x => x != name);
+            currentFilters = currentFilters.filter(x => x !== name);
         }
         setSubcategory(currentFilters);
     });
@@ -30,8 +30,13 @@ const Aside = ({ prods, setSubcategory, subcategory, setShippingFilter }) => {
         setShippingFilter(e.target.checked)
     }
 
+    // filtrar por precio
+    
+    const handlePrice=(e)=> {
+        setPriceFilter(e.target.value);
+    }
 
-
+    
     return (
         <>
             <h1>{prods[0].category}</h1>
@@ -57,19 +62,54 @@ const Aside = ({ prods, setSubcategory, subcategory, setShippingFilter }) => {
                 <div>
                     <div>
                         <legend>Envío</legend>
-                        <label><input type='checkbox' name={prods.shipping} onChange={ checkShipping }/>Envío gratis</label>
+                        <label><input
+                            className="only-one"
+                            type='checkbox'
+                            checked={shippingFilter}
+                            onChange={checkShipping}
+                        />Envío gratis</label>
                     </div>
                 </div>
                 <div>
                     <legend>Precio</legend>
                     <div>
-                        <label><input type='checkbox' />Hasta $1000</label>
+                        <label><input
+                            type='radio'
+                            name='price'
+                            value='0'
+                            checked={priceFilter === '0' ? true : false }
+                            id='price0'
+                            onChange={handlePrice}
+                        />Mostrar todos</label>
                     </div>
                     <div>
-                        <label><input type='checkbox' />$1000 a $2000</label>
+                        <label><input
+                            className="only-one"
+                            type='radio'
+                            name='price'
+                            value='1'
+                            id='price1'
+                            onChange={handlePrice}
+                        />Hasta $1000</label>
                     </div>
                     <div>
-                        <label><input type='checkbox' />Más de $2000</label>
+                        <label><input
+                            className="only-one"
+                            type='radio'
+                            name='price'
+                            value='2'
+                            id='price2'
+                            onChange={handlePrice}
+                        />$1000 a $2000</label>
+                    </div>
+                    <div>
+                        <label><input
+                            type='radio'
+                            name='price'
+                            value='3'
+                            id='price3'
+                            onChange={handlePrice}
+                        />Más de $2000</label>
                     </div>
                 </div>
             </form>

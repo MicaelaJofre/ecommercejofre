@@ -1,5 +1,5 @@
 .containerCart {
-    margin: 5em;
+    margin: 3em;
     min-height: 50vh;
 }
 .containerCart h2 {
@@ -114,7 +114,7 @@
     border: none;
     outline: none;
     background-color: #FFEB54;
-    width: 90%;
+    width: 100%;
     text-transform: uppercase;
     font-size: 1em;
     font-weight: 600;
@@ -122,8 +122,9 @@
     color: rgba(153, 153, 153, 0.5);
     letter-spacing: 2px;
 }
-.totalButton a{
+.totalButton p{
     font-weight: 300;
+    cursor: pointer;
 }
 
 
@@ -157,6 +158,11 @@
 
 
 /*media queries*/
+@media screen and (max-width: 1150px) {
+    .containerCart {
+        padding-top: 7em;
+    }
+}
 @media screen and (max-width: 1060px) {
     .containerCart{
         margin: 1em;
@@ -168,7 +174,7 @@
         padding: 0;
     }
     .containerCart h2{
-        font-size: 1em;
+        font-size: 1.5em;
         margin: 0 .5em 3em .5em ;
     }
 }

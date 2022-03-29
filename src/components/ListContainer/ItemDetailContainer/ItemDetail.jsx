@@ -1,7 +1,8 @@
+import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard, faMoneyBill1 } from '@fortawesome/free-solid-svg-icons';
-import { Count } from "../../ListContainer/Count";
-import { ContainerLeyCompra } from '../ContainerLeyCompra';
+import { Count } from "../../count/Count";
+import { ContainerLeyCompra } from '../../cardsInfoLey/ContainerLeyCompra';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import{ UseContextAllIn } from '../../../context/CartContext';
@@ -14,7 +15,7 @@ const ItemDetail = ({ item }) => {
     //contador
     const [count, setCount] = useState(null);
 
-    
+    console.log(item);
     const onAdd = (count) => {
         if (count !== 0) {
             setCount(count);
@@ -27,7 +28,7 @@ const ItemDetail = ({ item }) => {
             <section className="containerDetail">
                 <div className="detailImg">
                     <p className='titleImg'>{item.name}</p>
-                    <img src={process.env.PUBLIC_URL + item.img} alt="" />
+                    <img src={process.env.PUBLIC_URL + item.img} alt={item.name} />
                     <p>{item.description}</p>
                 </div>
                 <div className="detailInfo">
@@ -39,7 +40,7 @@ const ItemDetail = ({ item }) => {
                     <div className="detailIcons">
                         <i><FontAwesomeIcon icon={faMoneyBill1} /></i>
                         <i><FontAwesomeIcon icon={faCreditCard} /></i>
-                        <a href="">ver medios de pago</a>
+                        <a href="/">ver medios de pago</a>
                         <span>{item.shipping ? 'Envío gratis' : 'Entrega a acordar con el vendedor'}</span>
                     </div>
                     <hr />

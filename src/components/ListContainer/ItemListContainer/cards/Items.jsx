@@ -1,5 +1,6 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Count } from '../../Count';
+import { Count } from '../../../count/Count';
 import "../ItemListContainer.css";
 import { UseContextAllIn } from '../../../../context/CartContext';
 import { useState } from 'react';

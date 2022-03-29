@@ -1,4 +1,5 @@
-import { ContainerLeyCompra } from '../../../ListContainer/ContainerLeyCompra';
+import React from 'react';
+import { ContainerLeyCompra } from '../../../cardsInfoLey/ContainerLeyCompra';
 import './Bannerinfo.css';
 
 const Bannerinfo = () => {

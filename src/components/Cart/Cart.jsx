@@ -1,11 +1,15 @@
+import React from 'react'
 import './Cart.css';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { ItemCart } from './ItemCart';
 import { UseContextAllIn } from "../../context/CartContext";
+
 
 const Cart = () => {
 
     const { cartList } = UseContextAllIn();
+    
+    window.scrollTo(0, 0);
 
     return (
         <div className='containerCart'>

@@ -1,3 +1,4 @@
+import React from 'react';
 import { createContext, useState, useContext, useEffect } from "react";
 
 const CartContext = createContext([]);
@@ -10,7 +11,9 @@ const CartContexFilter = ({ children }) => {
 
     const [subTotal, setSubTotal] = useState(0);
 
-    const [elements, setElements] = useState(0)
+    const [elements, setElements] = useState(0);
+
+    const [shippingCart, setShippingCart] = useState();
 
     // contador carrito y filtro para no repetir productos
     const addListCart = (item) => {
@@ -46,18 +49,29 @@ const CartContexFilter = ({ children }) => {
         setSubTotal(res);
     }
 
+    
+
     // contador del item del carrito
     const totalElements = () => {
         let total = 0;
-        cartList.forEach(prod => {
-            total += prod.quantity;
-        });
+        cartList.forEach(prod => total += prod.quantity);
         setElements(total);
     }
+
+    //envio gratis
+    const shippingFree = () => {
+        let shippTrue = 0;
+        let shippFalse = 0;
+        cartList.forEach(prod => prod.shipping ? shippTrue += prod.quantity : shippFalse += prod.quantity )
+        let totalShipping = shippTrue > shippFalse ? true : false;
+        setShippingCart(totalShipping ? 0 : 500)
+    }
+
 
     useEffect(() => {
         totalElements();
         totalPrice();
+        shippingFree();
     }, [cartList])
     
 
@@ -68,7 +82,9 @@ const CartContexFilter = ({ children }) => {
             emptyCard,
             deletProd,
             subTotal,
-            elements
+            elements,
+            shippingCart,
+            setCartList
         }}>
             {children}
         </CartContext.Provider>

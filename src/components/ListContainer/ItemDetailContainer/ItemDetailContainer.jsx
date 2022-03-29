@@ -1,24 +1,36 @@
+import React from 'react';
 import './ItemDetailContainer.css';
 import { useParams } from 'react-router-dom';
 import { ItemDetail } from './ItemDetail';
 import { useEffect, useState } from "react";
-import { getItems } from "../../../helpers/getFetchs";
+import { doc, getDoc, getFirestore} from 'firebase/firestore';
 
 const ItemDetailContainer = () => {
 
 
-    const [item, setItem] = useState();
+    const [item, setItem] = useState({});
+
     const [loading, setLoading] = useState(true);
+
     const { detailId } = useParams();
 
     //promesa
     useEffect(() => {
-        getItems
-            .then((data) => setItem(data.find(prod => prod.id === detailId)))
+
+        window.scrollTo(0, 0);
+        
+        const db = getFirestore();
+        const queryDb = doc(db, 'items', detailId);
+        
+        getDoc(queryDb)
+            .then(res => {
+                setItem({ id: res.id, ...res.data() })
+            })
             .catch((err) => console.log(err))
             .finally(() => setLoading(false))
-    }, [])
-
+            
+    }, [detailId])
+    
     return (
         <div className='itemDetailContainer'>
             <section className='InfoItemContainer'>

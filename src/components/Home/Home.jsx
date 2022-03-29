@@ -1,3 +1,4 @@
+import React from 'react'
 import './Home.css';
 import { Bannerinfo } from './ItemsHome/Bannerinfo/Bannerinfo';
 import { Cards } from './ItemsHome/Cards/Cards';

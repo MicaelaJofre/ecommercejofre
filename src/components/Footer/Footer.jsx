@@ -1,3 +1,4 @@
+import React from 'react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -21,12 +22,12 @@ const Footer = () => {
             </ul>
             <div className='footerIcons'>
                 <div className='iconsFaceInst'>
-                    <a href=""><FontAwesomeIcon icon={faFacebook} /></a>
-                    <a href=""><FontAwesomeIcon icon={faInstagram} /></a>
+                    <a href="/"><FontAwesomeIcon icon={faFacebook} /></a>
+                    <a href="/"><FontAwesomeIcon icon={faInstagram} /></a>
                 </div>
                 <div className='footerInfo'>
                     <p>Tel: 1152724578</p>
-                    <a href=''>tiendaonline@be-lieve.com.ar</a>
+                    <a href='/'>tiendaonline@be-lieve.com.ar</a>
                     <p>Paraguay 658 Caba Capital Federal</p>
                 </div>
             </div>

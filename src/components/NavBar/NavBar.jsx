@@ -41,11 +41,11 @@ const NavBar = () => {
                     <div className="firstIcons">
                         <form action="">
                             <input type="text" />
-                            <a href=""><FontAwesomeIcon icon={faMagnifyingGlass} /></a>
+                            <a href="/"><FontAwesomeIcon icon={faMagnifyingGlass} /></a>
                         </form>
                     </div>
                     <div className="firstIcons">
-                        <a href=""><FontAwesomeIcon icon={faEnvelope} /></a>
+                        <a href="/"><FontAwesomeIcon icon={faEnvelope} /></a>
                     </div>
                     <div className='cartPlus'>
                         <NavLink to='cart'><CartWidget /></NavLink>

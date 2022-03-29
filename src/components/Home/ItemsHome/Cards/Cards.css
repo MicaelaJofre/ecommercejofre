@@ -28,7 +28,7 @@
     align-items: center;
     padding: .5em;
 }
-.containerOptions span a {
+.containerOptions span i {
     font-size: 1.2em;
     border: solid rgba(85, 85, 85, 0.151) 1px;
     border-radius: 50%;
@@ -39,7 +39,7 @@
     padding-bottom: .3em;
     font-weight:300;
 }
-.containerOptions a{
+.containerOptions p{
     color: rgb(83, 83, 240);
     text-decoration: none;
     cursor: pointer;

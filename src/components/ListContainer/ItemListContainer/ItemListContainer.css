@@ -1,8 +1,18 @@
 .itemListContainer{
     display: flex;
     flex-wrap: wrap;
-    background-color: #faf1f18c;
 }
+
+/***h4 no hay productos***/
+.emptyH4{
+    display: flex;
+    padding-top: 5em;
+    margin: 2em;
+    font-weight: 300;
+    font-size: 1.2em;
+}
+
+
 /***** loading ******/
 
 .loader:before,
@@ -167,6 +177,11 @@
 
 
 /* media querie */
+@media screen and (max-width: 1150px) {
+    .itemListContainer {
+        margin-top: 5em;
+    }
+}
 @media screen and (max-width: 880px) {
     .asideDeco{
         padding: 3em;

@@ -1,13 +1,11 @@
 import React from 'react';
 import './Count.css';
 import { useState } from 'react';
-import { UseContextAllIn } from '../../context/CartContext';
 
 
 
 const Count = ({ onAdd, initial, stock }) => {
 
-    const { countCartIcon } = UseContextAllIn();
 
     //contador
     const [count, setCount] = useState(initial);
