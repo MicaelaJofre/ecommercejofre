@@ -23,6 +23,7 @@ function App() {
           <main>
             <Routes>
               <Route path='/' element={<Home />} />
+              <Route path='/prods' element={< ItemListContainer />} />
               <Route path='/category/:categoryId' element={< ItemListContainer />} />
               <Route path='/detail/:detailId' element={<ItemDetailContainer />} />
               <Route path='/cart' element={<Cart />} />

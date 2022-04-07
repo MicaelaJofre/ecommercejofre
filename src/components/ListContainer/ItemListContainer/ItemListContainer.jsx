@@ -1,10 +1,10 @@
 import React from 'react';
-import "./ItemListContainer.css";
-import { ItemList } from './cards/ItemList';
-import {  useEffect, useState } from "react";
-import { Aside } from "./aside/Aside";
 import { useParams } from "react-router-dom";
+import {  useEffect, useState } from "react";
+import { ItemList } from './cards/ItemList';
+import { Aside } from "./aside/Aside";
 import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
+import "./ItemListContainer.css";
 
 
 const ItemListContainer = () => {
@@ -24,7 +24,6 @@ const ItemListContainer = () => {
     const [shippingFilter, setShippingFilter] = useState(false);
 
     const [priceFilter, setPriceFilter] = useState('0');
-
     
     useEffect(() => {
     
@@ -34,7 +33,9 @@ const ItemListContainer = () => {
         const db = getFirestore();
         const queryCollection = collection(db, 'items');
 
-        let queryFilter = query(queryCollection, where('category', '==', categoryId));
+        let queryFilter = categoryId
+                                ? query(queryCollection, where('category', '==', categoryId))
+                                : queryCollection;
 
         queryFilter = shippingFilter ? query(queryFilter, where('shipping', '==', true)) : queryFilter;
 
@@ -71,7 +72,9 @@ const ItemListContainer = () => {
         
         const db = getFirestore();
         const queryCollection = collection(db, 'items');
-        let queryFilter = query(queryCollection, where('category', '==', categoryId));
+        let queryFilter = categoryId
+                                ? query(queryCollection, where('category', '==', categoryId))
+                                : queryCollection;
         
         getDocs(queryFilter)
             .then(res => {
@@ -89,9 +92,9 @@ const ItemListContainer = () => {
         <div className='itemListContainer'>
             <aside className='asideDeco'>
                 {
-                    loading ? <div ></div>
-                        :
-                        <Aside
+                    loading
+                        ? <></>
+                        :<Aside
                             prods={prods}
                             setSubcategory={setSubcategory}
                             subcategory={subcategory}

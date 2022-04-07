@@ -34,45 +34,54 @@ const FormPayment = () => {
         })
 
         //validaciones
+        const name = document.getElementById('name').value;
         const phone = document.getElementById('phone').value;
         const repEmail = document.getElementById('emailRep').value;
         const email = document.getElementById('email').value;
         const parentRep = document.getElementById('emailRep');
+        const parentEmail = document.getElementById('email');
         const parentPhone = document.getElementById('phone');
+        const parentName = document.getElementById('name');
 
         if ((phone !== "") && (/^\d{1,14}$/.test(phone))) {
-            if (repEmail === email) {
+            if ((repEmail === email) && (email !== '')) {
+                if ((name !== "") && (/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(name))) {
 
-                //enviar datos a firebase
-                const db = getFirestore();
-                const queryCollection = collection(db, 'orders');
-    
-                addDoc(queryCollection, order)
-                    .then(res => setNewOrder(res.id))
-                    .catch(err => console.log(err))
-                    .finally(() => {
-                        setLoading(false);
-                        setCartList([]);
-                    })
+                    //enviar datos a firebase
+                    const db = getFirestore();
+                    const queryCollection = collection(db, 'orders');
+
+                    addDoc(queryCollection, order)
+                        .then(res => setNewOrder(res.id))
+                        .catch(err => console.log(err))
+                        .finally(() => {
+                            setLoading(false);
+                            setCartList([]);
+                        })
+
+                    // contador de stock
+                    const queryItems = collection(db, 'items');
+
+                    const queryStock = query(queryItems, where(documentId(), 'in', cartList.map(it => it.id)));
+
+                    const batch = writeBatch(db);
+
+                    await getDocs(queryStock)
+                        .then(resp => resp.docs.forEach(res => batch.update(res.ref, { stock: res.data().stock - cartList.find(item => item.id === res.id).cantidad })))
+                    batch.commit();
+
+                } else {
+                    parentName.style.border = 'red solid 1px';
+                }
     
             } else {
                 parentRep.style.border = 'red solid 1px';
+                parentEmail.style.border = 'red solid 1px';
             }
             
         } else {
             parentPhone.style.border = 'red solid 1px';
         }
-
-        // contador de stock
-        /* const queryItems = collection(db, 'items');
-
-        const queryActulizarStock = await query(queryItems, where(documentId(), 'in', cartList.map(it => it.id)));
-
-        const batch = writeBatch(db);
-
-        await getDocs(queryActulizarStock)
-            .then(resp => resp.docs.forEach(res => batch.update(res.ref, { stock: res.data().stock - cartList.find(item => item.id === res.id).cantidad })))
-        batch.commit(); */
 
     }
     const handleInput = (e) => {

@@ -1,6 +1,6 @@
 import React from 'react';
-import { UseContextAllIn } from "../../context/CartContext";
 import { Link } from "react-router-dom";
+import { UseContextAllIn } from "../../context/CartContext";
 
 const ItemFormPayment = ({ handleInput, handleOrder, dataForm}) => {
 

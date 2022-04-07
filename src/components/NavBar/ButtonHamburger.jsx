@@ -1,5 +1,5 @@
 import React from 'react';
-import {  } from "./NavBar.css";
+import './NavBar.css';
 
 const ButtonHamburger = (props) => {
     return (

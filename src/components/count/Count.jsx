@@ -1,6 +1,6 @@
 import React from 'react';
-import './Count.css';
 import { useState } from 'react';
+import './Count.css';
 
 
 
@@ -11,14 +11,11 @@ const Count = ({ onAdd, initial, stock }) => {
     const [count, setCount] = useState(initial);
 
     const addProduct = () => {
-        if (count < stock) {
-            setCount(count + 1);
-        }
+        count < stock && setCount(count + 1);
     }
+
     const takeProduct = () => {
-        if (count > initial) {
-            setCount(count - 1);
-        }
+        count > initial && setCount(count - 1);
     }
 
     const addCart = () => {

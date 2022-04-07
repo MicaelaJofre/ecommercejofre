@@ -1,14 +1,18 @@
 import React from 'react';
 
-const Aside = ({ prods, setSubcategory, subcategory, setShippingFilter, setPriceFilter, shippingFilter, priceFilter }) => {
+const Aside = ({prods,
+                setSubcategory,
+                subcategory,
+                setShippingFilter,
+                setPriceFilter,
+                shippingFilter,
+                priceFilter }) => {
 
 
     // filtrar subcategoria
     const subcate = prods.map(prod => prod.sub_category);
 
-    const result = subcate.filter((item, index) => {
-        return subcate.indexOf(item) === index;
-    })
+    const result = subcate.filter((item, index) => subcate.indexOf(item) === index);
     
     //filtrar por checkbox
     
@@ -16,31 +20,32 @@ const Aside = ({ prods, setSubcategory, subcategory, setShippingFilter, setPrice
         let {name} = e.target;
         let currentFilters = [...subcategory];
 
-        if (e.target.checked) {
-            currentFilters = [name, ...currentFilters];
-        } else {
-            currentFilters = currentFilters.filter(x => x !== name);
-        }
+        e.target.checked
+                ? currentFilters = [name, ...currentFilters]
+                : currentFilters = currentFilters.filter(x => x !== name);
+        
         setSubcategory(currentFilters);
     });
     
     // filtrar checkbox envio gratis
 
-    const checkShipping = (e) => {
-        setShippingFilter(e.target.checked)
-    }
+    const checkShipping = (e) => setShippingFilter(e.target.checked);
 
     // filtrar por precio
     
-    const handlePrice=(e)=> {
-        setPriceFilter(e.target.value);
-    }
-
+    const handlePrice = (e) => setPriceFilter(e.target.value);
+    
     
     return (
         <>
-            <h1>{prods[0].category}</h1>
-            <p>{prods.length} resultados</p>
+            {
+                prods.length === 33
+                            ?<h1>Productos lima</h1>
+                            : <>
+                                <h1>{prods[0].category}</h1>
+                                <p>{prods.length} resultados</p>
+                            </>
+            }
             <form className='formAsideDeco' action="">
                 <div>
                     <legend>Categorías</legend>
@@ -51,8 +56,8 @@ const Aside = ({ prods, setSubcategory, subcategory, setShippingFilter, setPrice
                                     type='checkbox'
                                     name={prod}
                                     value='false'
-                                    onChange={filterCheckbox}
-                                    />{prod}</label>
+                                    onChange={filterCheckbox}/>
+                                    {prod}</label>
                             </div>
                         )
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Count } from '../../../count/Count';
-import "../ItemListContainer.css";
-import { UseContextAllIn } from '../../../../context/CartContext';
 import { useState } from 'react';
+import { Count } from '../../../count/Count';
+import { UseContextAllIn } from '../../../../context/CartContext';
+import "../ItemListContainer.css";
 
 const Items = ({ prod}) => {
 

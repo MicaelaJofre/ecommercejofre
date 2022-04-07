@@ -24,9 +24,10 @@ This proyect is a E-commerce of home decoration products. It aims to provide the
 ## Technologies
 ***
 A list of technologies used within the project:
-* React JS (core library)
+* React JS v-8.3.1 (core library)
 * React Router Dom (navigation).
-* fontawesome (icons).
+* fontawesome v-5.15.4 (icons).
+* Firebase v-9.6.10 (backend).
 
 ## Installation
 ***
@@ -42,3 +43,6 @@ Shows the main information of the website. With links to each section that the c
 ***
 - Shows extended information of the product searched or selected.
 - You can select the quantity you want to buy, validated by the quantity in stock.
+-The cart has logic as products are added.
+-Before finalizing the purchase, the buyer's data is collected in Firebase through a form.
+-Finally, the completion of the purchase is shown with its respective id.

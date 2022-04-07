@@ -15,7 +15,6 @@ const ItemDetail = ({ item }) => {
     //contador
     const [count, setCount] = useState(null);
 
-    console.log(item);
     const onAdd = (count) => {
         if (count !== 0) {
             setCount(count);

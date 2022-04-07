@@ -1,7 +1,7 @@
 import React from 'react';
+import { memo } from 'react';
 import { Items } from "./Items";
 import "../ItemListContainer.css";
-import { memo } from 'react';
 
 
 
