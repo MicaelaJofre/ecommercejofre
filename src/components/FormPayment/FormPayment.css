@@ -67,7 +67,10 @@
     font-size: 2em;
     color: #b19d0a;
 }
-
+.errors{
+    color: red;
+    font-size: .7em;
+}
 /****Finalizada la compra*****/
 .finalBuy{
     background: rgb(255, 255, 255);

@@ -84,7 +84,15 @@
     font-weight: 300;
     cursor: pointer;
 }
-
+.detailIcons p {
+    padding: .5em 0;
+    color: #ac9a11;
+}
+.stock{
+    font-size: .9em;
+    color: #ff5a5f;
+    text-align: center;
+}
 
 /* media querie */
 @media screen and (max-width: 1150px) {

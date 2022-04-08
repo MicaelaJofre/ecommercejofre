@@ -5,11 +5,13 @@ import { Count } from '../../../count/Count';
 import { UseContextAllIn } from '../../../../context/CartContext';
 import "../ItemListContainer.css";
 
-const Items = ({ prod}) => {
+const Items = ({ prod }) => {
 
 
     //traemos la funcion del contexto
-    const { addListCart} = UseContextAllIn();
+    const { addListCart, setStateStock } = UseContextAllIn();
+    
+    let stockProd = prod.stock;
 
     //contador
     const [count, setCount] = useState(null);
@@ -17,7 +19,9 @@ const Items = ({ prod}) => {
     const onAdd = (count) => {
         if (count !== 0) {
             setCount(count);
-            addListCart({ ...prod, quantity: count });
+            prod.stock
+                ? addListCart({ ...prod, quantity: count })
+                : setStateStock(true);
         }
     }
 
@@ -42,7 +46,7 @@ const Items = ({ prod}) => {
                         ? <Link to='/cart'>
                             <button>Ir al carrito</button>
                         </Link>
-                        : <Count initial={1} stock={5} onAdd={onAdd} />
+                        : <Count initial={stockProd > 0 ? 1 : 0} stock={stockProd} onAdd={onAdd} />
                 }
             </div>
         </div>

@@ -10,15 +10,20 @@ import{ UseContextAllIn } from '../../../context/CartContext';
 const ItemDetail = ({ item }) => {
     
     //traemos la funcion del contexto
-    const { addListCart } = UseContextAllIn();
+    const { addListCart, setStateStock } = UseContextAllIn();
 
     //contador
     const [count, setCount] = useState(null);
 
+    //stock
+    let stockProd = item.stock;
+
     const onAdd = (count) => {
         if (count !== 0) {
             setCount(count);
-            addListCart({...item, quantity : count});
+            item.stock
+                ? addListCart({ ...item, quantity: count })
+                : setStateStock(true);
         }
     }
 
@@ -41,15 +46,19 @@ const ItemDetail = ({ item }) => {
                         <i><FontAwesomeIcon icon={faCreditCard} /></i>
                         <a href="/">ver medios de pago</a>
                         <span>{item.shipping ? 'Envío gratis' : 'Entrega a acordar con el vendedor'}</span>
+                        <p>{item.stock > 0  ? `Stock disponible: ${item.stock}` : ''}</p>
                     </div>
                     <hr />
                     <p className='textCant'>Cantidad</p>
                     {
-                        count 
+                        count
                             ? <Link to='/cart'>
                                 <button>Ir al carrito</button>
                             </Link>
-                            : <Count initial={1} stock={5} onAdd={onAdd} />
+                            : <Count    initial={stockProd > 0 ? 1 : 0}
+                                        stock={stockProd}
+                                        onAdd={onAdd} />
+                        
                     }
                 </div>
             </section>

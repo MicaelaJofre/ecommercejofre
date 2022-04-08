@@ -24,15 +24,15 @@ const ItemListContainer = () => {
     const [shippingFilter, setShippingFilter] = useState(false);
 
     const [priceFilter, setPriceFilter] = useState('0');
+
+    const db = getFirestore();
+    const queryCollection = collection(db, 'items');
     
     useEffect(() => {
     
         window.scrollTo(0, 0);
 
         //filtros para envio - precio - sub-categoria
-        const db = getFirestore();
-        const queryCollection = collection(db, 'items');
-
         let queryFilter = categoryId
                                 ? query(queryCollection, where('category', '==', categoryId))
                                 : queryCollection;
@@ -70,8 +70,7 @@ const ItemListContainer = () => {
 
         window.scrollTo(0, 0);
         
-        const db = getFirestore();
-        const queryCollection = collection(db, 'items');
+        //filtros por categoria
         let queryFilter = categoryId
                                 ? query(queryCollection, where('category', '==', categoryId))
                                 : queryCollection;

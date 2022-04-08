@@ -15,6 +15,8 @@ const CartContexFilter = ({ children }) => {
 
     const [shippingCart, setShippingCart] = useState();
 
+    const [stateStock, setStateStock] = useState(false);
+
     // contador carrito y filtro para no repetir productos
     const addListCart = (item) => {
         
@@ -78,7 +80,9 @@ const CartContexFilter = ({ children }) => {
             subTotal,
             elements,
             shippingCart,
-            setCartList
+            setCartList,
+            setStateStock,
+            stateStock
         }}>
             {children}
         </CartContext.Provider>

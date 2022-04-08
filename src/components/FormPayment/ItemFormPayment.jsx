@@ -1,10 +1,13 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { UseContextAllIn } from "../../context/CartContext";
 
-const ItemFormPayment = ({ handleInput, handleOrder, dataForm}) => {
+const ItemFormPayment = ({ setNewOrder, setLoading, handleCount}) => {
 
-    const { cartList, subTotal, shippingCart } = UseContextAllIn();
+    const { cartList, subTotal, shippingCart, setCartList } = UseContextAllIn();
+
 
     return (
         <div className='containerFormPayment'>
@@ -13,38 +16,113 @@ const ItemFormPayment = ({ handleInput, handleOrder, dataForm}) => {
             </Link>
             <h2 className='paymentH2'>Datos de contacto</h2>
             <div className="formPay">
-                <form
-                    onSubmit={handleOrder}>
-                    <input
-                        type="text"
-                        placeholder='Nombre'
-                        id='name'
-                        name='name'
-                        value={dataForm.name}
-                        onChange={handleInput}
-                    />
-                    <input type="text"
-                        placeholder='Número de teléfono'
-                        id='phone'
-                        name='phone'
-                        value={dataForm.phone}
-                        onChange={handleInput}
-                    />
-                    <input type="email"
-                        placeholder='Email'
-                        name='email'
-                        id='email'
-                        value={dataForm.email}
-                        onChange={handleInput}
-                    />
-                    <input type="email"
-                        placeholder='Repetir email'
-                        name='emailRep'
-                        id='emailRep'
-                        onChange={handleInput}
-                    />
-                    <button className='btnForm'>Terminar compra</button>
-                </form>
+                <Formik
+                    initialValues={{
+                        name: '',
+                        phone: '',
+                        email: '',
+                        emailRep: ''
+                    }}
+                    validate={(data) => {
+                        let errorsImput = {};
+                        //validación nombre
+                        if (!data.name) {
+                            errorsImput.name = 'Por favor ingresa un nombre';
+                        } else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(data.name)) {
+                            errorsImput.name = 'El nombre solo puede contener letras y espacios';
+                        }
+                        //validación teléfono
+                        if (!data.phone) {
+                            errorsImput.phone = 'Por favor ingresa un teléfono';
+                        } else if (!/^\d{1,14}$/.test(data.phone)) {
+                            errorsImput.phone = 'El teléfono solo puede contener números'
+                        }
+                        //validación correo
+                        if (!data.email) {
+                            errorsImput.email = 'Por favor ingresa un correo electrónico';
+                        } else if (! /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(data.email)) {
+                            errorsImput.email = 'Por favor ingresa un correo electrónico válido';
+                        }
+                        if (!data.emailRep) {
+                            errorsImput.emailRep = 'Por favor ingresa un correo electrónico';
+                        } else if (data.email !== data.emailRep) {
+                            errorsImput.emailRep = 'El correo electrónico no coinside'
+                        } 
+                        
+                        return errorsImput;
+                    }}
+                    onSubmit={(data, { resetForm }) => {
+                        let order = {};
+                        order.buyer = data;
+                        order.total = shippingCart + subTotal;
+                        order.items = cartList.map(item => {
+                            const id = item.id;
+                            const name = item.name;
+                            const price = item.price * item.quantity;
+                            return { id, name, price };
+                        })
+
+                        //enviar datos a firebase
+                        const db = getFirestore();
+                        const queryCollection = collection(db, 'orders');
+
+                        addDoc(queryCollection, order)
+                            .then(res => setNewOrder(res.id))
+                            .catch(err => console.log(err))
+                            .finally(() => {
+                                setLoading(false);
+                                setCartList([]);
+                            })
+                        
+                        handleCount();
+                        resetForm();
+                    }}
+                >
+                    {({ errors }) => (
+                        
+                        <Form>
+                            <Field
+                                type="text"
+                                placeholder='Nombre'
+                                id='name'
+                                name='name'
+                            />
+                            <ErrorMessage name='name' component={() => (
+                                <div className='errors'>{errors.name}</div>
+                            )} />
+                            
+                            <Field type="text"
+                                placeholder='Número de teléfono'
+                                id='phone'
+                                name='phone'
+                            />
+                            <ErrorMessage name='phone' component={() => (
+                                <div className='errors'>{errors.phone}</div>
+                            )} />
+                            
+                            <Field type="email"
+                                placeholder='Email'
+                                name='email'
+                                id='email'
+                            />
+                            <ErrorMessage name='email' component={() => (
+                                <div className='errors'>{errors.email}</div>
+                            )} />
+                            
+                            <Field type="email"
+                                placeholder='Repetir email'
+                                name='emailRep'
+                                id='emailRep'
+                            />
+                            <ErrorMessage name='emailRep' component={() => (
+                                <div className='errors'>{errors.emailRep}</div>
+                            )} />
+                            
+
+                            <button type='submit' className='btnForm'>Terminar compra</button>
+                        </Form>
+                    )}
+                </Formik>
                 <div className="buys">
                     {cartList.map(prod => {
                         return (

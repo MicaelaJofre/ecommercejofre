@@ -27,11 +27,23 @@ const Count = ({ onAdd, initial, stock }) => {
     return (
         <>
             <div className="countCards">
-                <p onClick={takeProduct}>-</p>
-                <p>{count}</p>
-                <p onClick={addProduct}>+</p>
+                {
+                    count === 0
+                        ? <p className='stock'>Sin stock</p>
+                        :
+                        <>
+                            <p onClick={takeProduct}>-</p>
+                            <p>{count}</p>
+                            <p onClick={addProduct}>+</p>
+                        </>
+                }
             </div>
-            <button onClick={ addCart }>Agregar al carrito</button>
+            {
+                count === 0
+                    ? <p></p>
+                    : <button onClick={addCart}>Agregar al carrito</button>
+            }
+            
         </>
     )
 }
