@@ -1,7 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import { NavBar } from "./components/NavBar/NavBar";
-import './App.css';
 import { Home } from "./components/Home/Home";
 import { ItemListContainer } from "./components/ListContainer/ItemListContainer/ItemListContainer";
 import { ItemDetailContainer } from "./components/ListContainer/ItemDetailContainer/ItemDetailContainer";
@@ -9,6 +8,7 @@ import { Cart } from "./components/Cart/Cart";
 import { FormPayment } from "./components/FormPayment/FormPayment";
 import { Footer } from "./components/Footer/Footer";
 import UseContextAllIn from "./context/CartContext";
+import './App.css';
 
 
 function App() {

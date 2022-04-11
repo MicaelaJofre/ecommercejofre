@@ -25,8 +25,8 @@ This proyect is a E-commerce of home decoration products. It aims to provide the
 ***
 A list of technologies used within the project:
 * React JS v-8.3.1 (core library)
-* React Router Dom (navigation).
-* fontawesome v-6.0.0 (icons).
+* React Router Dom v-6.2.2 (navigation).
+* React-fontawesome v-0.1.17 (icons).
 * Firebase v-9.6.9 (backend).
 * Formik v-2.2.9 (form validation)
 

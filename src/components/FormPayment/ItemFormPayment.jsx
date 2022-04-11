@@ -8,7 +8,7 @@ const ItemFormPayment = ({ setNewOrder, setLoading, handleCount}) => {
 
     const { cartList, subTotal, shippingCart, setCartList } = UseContextAllIn();
 
-
+    // se utiliza la librería formik para las validaciones
     return (
         <div className='containerFormPayment'>
             <Link to='/cart'>

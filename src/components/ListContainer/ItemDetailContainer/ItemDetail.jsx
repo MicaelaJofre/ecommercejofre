@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard, faMoneyBill1 } from '@fortawesome/free-solid-svg-icons';
-import { Count } from "../../count/Count";
 import { ContainerLeyCompra } from '../../cardsInfoLey/ContainerLeyCompra';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Count } from "../../count/Count";
 import{ UseContextAllIn } from '../../../context/CartContext';
 
 const ItemDetail = ({ item }) => {
@@ -44,7 +43,7 @@ const ItemDetail = ({ item }) => {
                     <div className="detailIcons">
                         <i><FontAwesomeIcon icon={faMoneyBill1} /></i>
                         <i><FontAwesomeIcon icon={faCreditCard} /></i>
-                        <a href="/">ver medios de pago</a>
+                        <span className='linkShipping'>ver medios de pago</span>
                         <span>{item.shipping ? 'Envío gratis' : 'Entrega a acordar con el vendedor'}</span>
                         <p>{item.stock > 0  ? `Stock disponible: ${item.stock}` : ''}</p>
                     </div>

@@ -7,6 +7,9 @@ import { Promo } from './ItemsHome/Promo/Promo';
 import './Home.css';
 
 const Home = () => {
+
+    window.scrollTo(0, 0);
+
     return (
         <div className='containerHome'>
             <Hero />

@@ -1,8 +1,7 @@
-import React from 'react';
-import { UseContextAllIn } from "../../context/CartContext";
+import React, { useState } from 'react';
 import { collection, documentId, getDocs, getFirestore, query, where, writeBatch } from 'firebase/firestore';
-import { useState } from "react";
 import { ItemFormPayment } from "./ItemFormPayment";
+import { UseContextAllIn } from "../../context/CartContext";
 import './FormPayment.css';
 
 const FormPayment = () => {

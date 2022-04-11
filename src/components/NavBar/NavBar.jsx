@@ -11,6 +11,7 @@ const NavBar = () => {
 
     const [activeClick, setClicked] = useState(false);
     
+    //boton de hamburguesa
     const handleClick = () => {
         setClicked(!activeClick);
     }
@@ -42,7 +43,7 @@ const NavBar = () => {
                     <div className="firstIcons">
                     </div>
                     <div className="firstIcons">
-                        <a href="/"><FontAwesomeIcon icon={faEnvelope} /></a>
+                        <a href='mailto:mkjofre@gmail.com' target='_blank'><FontAwesomeIcon icon={faEnvelope} /></a>
                     </div>
                     <div className='cartPlus'>
                         <NavLink to='cart'><CartWidget /></NavLink>

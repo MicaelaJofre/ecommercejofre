@@ -15,8 +15,9 @@
     line-height: 200%;
     font-weight: 300;
 }
-.cancell a{
+.link{
     font-size: .8em;
+    text-decoration:underline;
     cursor: pointer;
 }
 .rules{

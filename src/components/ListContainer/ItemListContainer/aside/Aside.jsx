@@ -40,7 +40,10 @@ const Aside = ({prods,
         <>
             {
                 prods.length === 33
-                            ?<h1>Productos lima</h1>
+                            ? <>
+                                <h1>Lima</h1>
+                                <p>{prods.length} resultados</p>
+                            </>
                             : <>
                                 <h1>{prods[0].category}</h1>
                                 <p>{prods.length} resultados</p>

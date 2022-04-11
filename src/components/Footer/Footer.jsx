@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {  } from '@fortawesome/free-solid-svg-icons';
 import { faFacebook, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import './Footer.css';
     
 const Footer = () => {
     return (
@@ -22,12 +21,12 @@ const Footer = () => {
             </ul>
             <div className='footerIcons'>
                 <div className='iconsFaceInst'>
-                    <a href="/"><FontAwesomeIcon icon={faFacebook} /></a>
-                    <a href="/"><FontAwesomeIcon icon={faInstagram} /></a>
+                        <a href="https://www.facebook.com/micaela.jofre.12/" target='_blank'><FontAwesomeIcon icon={faFacebook} /></a>
+                        <a href="https://www.instagram.com/mkjofpell/" target='_blank'><FontAwesomeIcon icon={faInstagram} /></a>
                 </div>
                 <div className='footerInfo'>
                     <p>Tel: 1152724578</p>
-                    <a href='/'>tiendaonline@be-lieve.com.ar</a>
+                        <a href='mailto:mkjofre@gmail.com' target='_blank'>tiendaonline@be-lieve.com.ar</a>
                     <p>Paraguay 658 Caba Capital Federal</p>
                 </div>
             </div>
