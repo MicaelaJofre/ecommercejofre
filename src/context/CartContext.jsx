@@ -15,13 +15,10 @@ const CartContexFilter = ({ children }) => {
 
     const [shippingCart, setShippingCart] = useState();
 
-    const [stateStock, setStateStock] = useState(false);
-
     // contador carrito y filtro para no repetir productos
     const addListCart = (item) => {
-        
         if (cartList.length > 0) {
-            cartList.forEach(prod =>prod.id === item.id && (item.quantity += prod.quantity));
+            cartList.forEach(prod => prod.id === item.id && (item.quantity += prod.quantity));
             setCartList([...cartList.filter(prod => prod.id !== item.id), item]);
         } else {
             setCartList([...cartList, item]);
@@ -70,7 +67,6 @@ const CartContexFilter = ({ children }) => {
         shippingFree();
     }, [cartList])
     
-
     return (
         <CartContext.Provider value={{
             cartList,
@@ -80,9 +76,7 @@ const CartContexFilter = ({ children }) => {
             subTotal,
             elements,
             shippingCart,
-            setCartList,
-            setStateStock,
-            stateStock
+            setCartList
         }}>
             {children}
         </CartContext.Provider>

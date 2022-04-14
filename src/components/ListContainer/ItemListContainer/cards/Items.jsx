@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Count } from '../../../count/Count';
 import { UseContextAllIn } from '../../../../context/CartContext';
@@ -8,21 +8,36 @@ const Items = ({ prod }) => {
 
 
     //traemos la funcion del contexto
-    const { addListCart, setStateStock } = UseContextAllIn();
+    const { addListCart, cartList } = UseContextAllIn();
     
     let stockProd = prod.stock;
 
     //contador
     const [count, setCount] = useState(null);
 
+    //stock
+    const [stock, setStock] = useState(prod.stock);
+
     const onAdd = (count) => {
         if (count !== 0) {
             setCount(count);
-            prod.stock
-                ? addListCart({ ...prod, quantity: count })
-                : setStateStock(true);
+            addListCart({ ...prod, quantity: count })
         }
     }
+
+    const checkStock = () => {
+        if(cartList.length > 0) {
+            cartList.forEach(item => {
+                if (item.id === prod.id) {
+                    setStock(prod.stock - item.quantity)
+                }
+            });
+        }
+    }
+
+    useEffect(() => {
+        checkStock();
+    }, [])
 
     return (
         <div key={prod.id}>
@@ -45,7 +60,7 @@ const Items = ({ prod }) => {
                         ? <Link to='/cart'>
                             <button>Ir al carrito</button>
                         </Link>
-                        : <Count initial={stockProd > 0 ? 1 : 0} stock={stockProd} onAdd={onAdd} />
+                        : <Count initial={stock > 0 ? 1 : 0} stock={stock} onAdd={onAdd} />
                 }
             </div>
         </div>

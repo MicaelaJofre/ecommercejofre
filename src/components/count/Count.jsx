@@ -27,7 +27,7 @@ const Count = ({ onAdd, initial, stock }) => {
         <>
             <div className="countCards">
                 {
-                    count === 0
+                    stock === 0
                         ? <p className='stock'>Sin stock</p>
                         :
                         <>

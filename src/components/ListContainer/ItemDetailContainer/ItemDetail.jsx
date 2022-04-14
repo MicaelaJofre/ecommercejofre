@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCreditCard, faMoneyBill1 } from '@fortawesome/free-solid-svg-icons';
@@ -9,22 +9,37 @@ import{ UseContextAllIn } from '../../../context/CartContext';
 const ItemDetail = ({ item }) => {
     
     //traemos la funcion del contexto
-    const { addListCart, setStateStock } = UseContextAllIn();
+    const { addListCart, cartList } = UseContextAllIn();
 
     //contador
     const [count, setCount] = useState(null);
 
     //stock
-    let stockProd = item.stock;
+    const [stock, setStock] = useState(item.stock);
 
+    
     const onAdd = (count) => {
         if (count !== 0) {
             setCount(count);
-            item.stock
-                ? addListCart({ ...item, quantity: count })
-                : setStateStock(true);
+            addListCart({ ...item, quantity: count });
         }
     }
+
+    const checkStock = () => {
+        
+        if (cartList.length > 0) {
+            cartList.forEach(prod => {
+                if (prod.id === item.id) {
+                    setStock(item.stock - prod.quantity)
+                }
+            });
+        }
+    }
+    useEffect(() => {
+        checkStock();
+    }, [])
+    
+
 
     return (
         <>
@@ -45,7 +60,7 @@ const ItemDetail = ({ item }) => {
                         <i><FontAwesomeIcon icon={faCreditCard} /></i>
                         <span className='linkShipping'>ver medios de pago</span>
                         <span>{item.shipping ? 'Envío gratis' : 'Entrega a acordar con el vendedor'}</span>
-                        <p>{item.stock > 0  ? `Stock disponible: ${item.stock}` : ''}</p>
+                        <p>{stock > 0 ? `Stock disponible: ${stock}` : ''}</p>
                     </div>
                     <hr />
                     <p className='textCant'>Cantidad</p>
@@ -54,8 +69,8 @@ const ItemDetail = ({ item }) => {
                             ? <Link to='/cart'>
                                 <button>Ir al carrito</button>
                             </Link>
-                            : <Count    initial={stockProd > 0 ? 1 : 0}
-                                        stock={stockProd}
+                            : <Count    initial={stock > 0 ? 1 : 0}
+                                        stock={stock}
                                         onAdd={onAdd} />
                         
                     }

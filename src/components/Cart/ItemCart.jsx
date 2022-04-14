@@ -38,7 +38,7 @@ function ItemCart() {
                     <i><FontAwesomeIcon icon={faStore} /> </i>
                     <span>Nuestro local</span>
                     <div className="address">
-                        <p>showroom Cramer 1265 1º 5, Buenos Aires <br />lunes a viernes de 10 a 16.00 hs.</p>
+                        <p>showroom Cramer 325665 1º 5, Buenos Aires <br />lunes a viernes de 10 a 16.00 hs.</p>
                     </div>
                 </div>
                 <div className="Total">
