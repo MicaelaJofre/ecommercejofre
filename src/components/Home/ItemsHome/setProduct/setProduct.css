@@ -1,0 +1,16 @@
+.containerProduct {
+    height: 100%;
+    padding: 5em;
+}
+.prodH3 {
+    font-weight: 600;
+    font-size: 1.5em;
+    font-weight: 300;
+    text-align: center;
+    text-transform: uppercase;
+}
+@media screen and (max-width: 400px ) {
+    .containerProduct{
+        padding: 1em;
+    }
+}

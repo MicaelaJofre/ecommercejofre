@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import { ItemList } from './cards/ItemList';
 import { Aside } from "./aside/Aside";
-import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore'
+import { collection, getDocs, getFirestore, query, where } from 'firebase/firestore';
 import "./ItemListContainer.css";
 
 
