@@ -38,12 +38,12 @@ A list of technologies used within the project:
 
 ## HomeSection
 ***
-Shows the main information of the website. With links to each section that the client can access.
+Shows the main information of the website. With linknpm run deploys to each section that the client can access.
 
 ## DetailsDection
 ***
 - Shows extended information of the product searched or selected.
 - You can select the quantity you want to buy, validated by the quantity in stock.
--The cart has logic as products are added.
--Before finalizing the purchase, the buyer's data is collected in Firebase through a form.
--Finally, the completion of the purchase is shown with its respective id.
+- The cart has logic as products are added.
+- Before finalizing the purchase, the buyer's data is collected in Firebase through a form.
+- Finally, the completion of the purchase is shown with its respective id.
