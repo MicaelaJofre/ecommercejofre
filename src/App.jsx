@@ -21,7 +21,7 @@ function App() {
             <NavBar />
           </header>
           <main>
-            <Routes basename={process.env.PUBLIC_URL}>
+            <Routes basename={process.env.PUBLIC_URL + './index.html'}>
               <Route path='/' element={<Home />} />
               <Route path='/prods' element={< ItemListContainer />} />
               <Route path='/category/:categoryId' element={< ItemListContainer />} />
