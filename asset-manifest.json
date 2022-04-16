@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/ecommercejofre/static/css/main.4f59dea0.css",
+    "main.js": "/ecommercejofre/static/js/main.463b297d.js",
+    "static/media/decoHeader2.jpeg": "/ecommercejofre/static/media/decoHeader2.9368789fe22c192c47d3.jpeg",
+    "index.html": "/ecommercejofre/index.html",
+    "main.4f59dea0.css.map": "/ecommercejofre/static/css/main.4f59dea0.css.map",
+    "main.463b297d.js.map": "/ecommercejofre/static/js/main.463b297d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4f59dea0.css",
+    "static/js/main.463b297d.js"
+  ]
+}
