@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/ecommercejofre/static/css/main.4f59dea0.css",
+    "main.css": "/ecommercejofre/static/css/main.25d4d60f.css",
     "main.js": "/ecommercejofre/static/js/main.7b854fbf.js",
     "static/media/decoHeader2.jpeg": "/ecommercejofre/static/media/decoHeader2.9368789fe22c192c47d3.jpeg",
     "index.html": "/ecommercejofre/index.html",
-    "main.4f59dea0.css.map": "/ecommercejofre/static/css/main.4f59dea0.css.map",
+    "main.25d4d60f.css.map": "/ecommercejofre/static/css/main.25d4d60f.css.map",
     "main.7b854fbf.js.map": "/ecommercejofre/static/js/main.7b854fbf.js.map"
   },
   "entrypoints": [
-    "static/css/main.4f59dea0.css",
+    "static/css/main.25d4d60f.css",
     "static/js/main.7b854fbf.js"
   ]
 }
