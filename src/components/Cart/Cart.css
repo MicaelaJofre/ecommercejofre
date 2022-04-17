@@ -163,46 +163,44 @@
         padding-top: 7em;
     }
 }
-@media screen and (max-width: 1060px) {
+@media screen and (max-width: 860px) {
     .containerCart{
         margin: 1em;
     }
     .footerCart{
         justify-content: center;
     }
-    .titleTable{
-        padding: 0;
-    }
     .containerCart h2{
         font-size: 1.5em;
         margin: 0 .5em 3em .5em ;
     }
-}
-
-/*media queries*/
-@media screen and (max-width: 1160px) {
-
-    .titleTable,  .tableTotal {
+    .titleTable,
+    .tableTotal {
         grid-template-columns: repeat(auto-fill, 25%);
         text-align: center;
+        padding: .5em 0;
     }
+
     .tableTotal img {
         width: 4em;
         height: 2.5em;
         justify-self: center;
     }
-    .tableTotal i{
+
+    .tableTotal i {
         text-align: center;
     }
+
     .titleTable h4 {
         font-size: .8em;
         padding: .5em 0;
     }
-    .visibility{
+
+    .visibility {
         display: none
     }
+
     .titleTable button {
         display: none;
     }
-
 }
