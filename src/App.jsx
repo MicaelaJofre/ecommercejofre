@@ -14,14 +14,14 @@ import './App.css';
 function App() {
 
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>>
       <UseContextAllIn >
         < div className="App" >
           <header>
             <NavBar />
           </header>
           <main>
-            <Routes basename={process.env.PUBLIC_URL + './index.html'}>
+            <Routes>
               <Route path='/' element={<Home />} />
               <Route path='/prods' element={< ItemListContainer />} />
               <Route path='/category/:categoryId' element={< ItemListContainer />} />
