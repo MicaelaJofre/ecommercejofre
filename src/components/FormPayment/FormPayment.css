@@ -93,6 +93,9 @@
     line-height: 1.5em;
     text-align: center;
 }
+.finalBuy p {
+    text-align: center;
+}
 .spanFinal {
     font-size: 1.2em;
     color: #b19d0a;
